@@ -38,7 +38,7 @@ class UserController extends Controller
         } else {
             return redirect()->route('view.login')
                 ->withErrors([
-                    'email' => 'The provided credentials do not match our system.',
+                    'email' => 'Email or Password is Wrong',
                 ]);
         }
     }
@@ -47,11 +47,5 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('view.login');
-    }
-
-
-    public function forget()
-    {
-        return view('admin.forget-password');
     }
 }

@@ -48,7 +48,19 @@
 </head>
 
 <body>
-<div id="app">
+    @if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+
+  <div id="app">
     <div class="main-wrapper">
         <section class="section">
             <div class="container container-login">
@@ -59,9 +71,13 @@
                                 <h4 class="text-center">Reset Password</h4>
                             </div>
                             <div class="card-body card-body-auth">
-                                <form method="POST" action="">
+                                <form method="POST" action="{{route('user.forget')}}">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
+                                        <input type="email" value="{{old('email')}}" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
+                                    @error('email')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
