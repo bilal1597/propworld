@@ -63,9 +63,15 @@
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" value="{{old('email')}}" class="form-control" name="email" placeholder="Email Address" value="" autofocus>
+                                        @error('email')
+                                        <span class="text-danger" >{{$message}}</span>
+                                    @enderror
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password"  placeholder="Password">
+                                        @error('password')
+                                        <span class="text-danger" >{{$message}}</span>
+                                          @enderror
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
@@ -74,7 +80,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div>
-                                            <a href="">
+                                            <a href="{{route('view.forget')}}">
                                                 Forget Password?
                                             </a>
                                         </div>

@@ -50,8 +50,8 @@ class UserController extends Controller
     }
 
 
-    // public function forget()
-    // {
-    //     return view('admin.forget-password');
-    // }
+    public function forget()
+    {
+        return view('admin.forget-password');
+    }
 }
