@@ -17,12 +17,14 @@ Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [UserController::class, 'index'])->name('view.dashboard');
 
-// Route::get('profile/{id}', [UserController::class, 'getProfile'])->name('view.profile');
-// Route::post('profile', [UserController::class, 'editProfile'])->name('edit.profile');
-Route::middleware('auth')->group(function () {
-    Route::get('profile', [UserController::class, 'getProfile'])->name('view.profile');
-    Route::post('profile/update', [UserController::class, 'updateProfile'])->name('edit.profile');
-});
+Route::get('profile', [UserController::class, 'getProfile'])->name('view.profile');
+Route::post('profile', [UserController::class, 'updateProfile'])->name('edit.profile');
+
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('profile', [UserController::class, 'getProfile'])->name('view.profile');
+//     Route::post('profile/update', [UserController::class, 'updateProfile'])->name('edit.profile');
+// });
 
 
 ////////////////AUTHENTICATION /////////////////

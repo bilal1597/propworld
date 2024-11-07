@@ -66,9 +66,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle no-hover-effect" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img alt="image" src=""
+                        <img alt="image" src="{{asset($user ->image)}}"
                             class="rounded-circle-custom">
-                        <div class="d-sm-none d-lg-inline-block no-hover-effect">Admin</div>
+                        <div class="d-sm-none d-lg-inline-block no-hover-effect">{{$user ->name}}</div>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
@@ -132,30 +132,58 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
+                                    @if(session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                    @endif
+                                    @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                    @endif
+
+
                                     <form action="{{route('edit.profile')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" value="{{$user ->id}}" name="id">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="uploads/user.jpg" alt="" class="profile-photo w_100_p">
-                                                <input type="file" class="form-control mt_10" name="photo">
+
+                                                <img src="{{asset($user ->image)}}" alt="" class="profile-photo w_100_p">
+                                                <input type="file" class="form-control mt_10" name="image">
+                                                @error('image')
+                                                <span class="text-danger" >{{$message}}</span>
+                                            @enderror
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="mb-4">
                                                     <label class="form-label">Name *</label>
                                                     <input type="text" value="{{old('name',$user ->name)}}" class="form-control" name="name">
+                                                    @error('name')
+                                        <span class="text-danger" >{{$message}}</span>
+                                    @enderror
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label">Email *</label>
                                                     <input type="email" value="{{old('email', $user ->email)}}" class="form-control" name="email" value="john@gmail.com">
+                                                    @error('email')
+                                                    <span class="text-danger" >{{$message}}</span>
+                                                @enderror
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label">Password</label>
-                                                    <input type="password"  class="form-control" name="new_password">
+                                                    <input type="password"  class="form-control" name="password">
+                                                    @error('password')
+                                                    <span class="text-danger" >{{$message}}</span>
+                                                @enderror
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label">Retype Password</label>
                                                     <input type="password" class="form-control" name="retype_password">
+                                                    @error('retype_password')
+                                        <span class="text-danger" >{{$message}}</span>
+                                    @enderror
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label"></label>

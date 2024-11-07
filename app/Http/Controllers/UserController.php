@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         if (Auth::check()) {
-            return view('admin.index');
+            return view('admin.index', compact('user'));
         } else {
             return redirect()->route('view.login');
         }
@@ -52,52 +54,47 @@ class UserController extends Controller
 
     public function getProfile()
     {
-        // Fetch the authenticated user
-        $user = Auth::user(); // Get the currently authenticated user
 
-        // Return the profile view with user data
-        return view('admin.profile', compact('user'));
+        $user = Auth::user();                   // Get the currently authenticated user
 
-        // if (Auth::check()) {
-        //     $profile = User::all();
-        //     $user = User::find($id);
-        //     if (!$user) {
-        //         return redirect()->back()->with('error', 'Product not found.');
-        //     }
-        //     return view('admin.profile', compact('user'));
-        // } else {
-        //     return redirect()->route('view.login');
-        // }
+        if (Auth::check()) {
+            return view('admin.profile', compact('user'));
+        } else {
+            return redirect()->route('view.login');
+        }
+
+        // return view('admin.profile', compact('user'));
     }
 
     public function updateProfile(Request $request)
     {
-        $user = Auth::user(); // Get the currently authenticated user
 
-        // Validate input data
-        $validated = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            'new_password' => 'requiredd|string|min:8|confirmed', // optional password
-            // 'retype_password' => 'required|same:new_password',
+            'email' => 'required|email|max:255|unique:users,email,' . $request->id,
+            'password' => 'nullable|string|min:4', // optional password
+            'retype_password' => 'nullable|same:password',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp' // optional photo upload
         ]);
 
-        // // Update user data
-        // $user->name = $validated['name'];
-        // $user->email = $validated['email'];
 
-        // if ($request->has('new_password') && $request->new_password) {
-        //     $user->password = bcrypt($request->new_password);
-        // }
+        $user = User::findOrFail($request->id);
 
-        // // Handle photo upload if a new photo is uploaded
-        // if ($request->hasFile('photo')) {
-        //     $path = $request->file('photo')->store('user_photos', 'public');
-        //     $user->photo = $path;
-        // }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
-        // $user->save(); // Save the changes to the database
+        if ($request->has('image')) {
+            if ($user->image && file_exists(public_path($user->image))) {
+                unlink(public_path($user->image));
+            }
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->extension();
+            $path = 'uploads/category/';
+            $file->move(public_path($path), $filename);
+            $user->image = $path . $filename;
+        }
+        $user->save();
 
         return redirect()->route('view.profile')->with('success', 'Profile updated successfully.');
     }

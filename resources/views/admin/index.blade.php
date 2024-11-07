@@ -67,11 +67,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle no-hover-effect" href="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img alt="image" src=""
+                        <img alt="image" src="{{asset($user ->image)}}"
                             class="rounded-circle-custom">
                 {{-- <td> <a class="btn  btn-info" href="{{route('view.product',$user->id)}}">Edit</a></td> --}}
 
-                <div class="d-sm-none d-lg-inline-block no-hover-effect">Admin</div>
+                <div class="d-sm-none d-lg-inline-block no-hover-effect">{{$user ->name}}</div>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="card card-statistic-1">
                             <div class="card-icon bg-danger">
                                 <i class="fas fa-book-open"></i>
@@ -160,8 +160,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                    </div> --}}
+
+                    {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="card card-statistic-1">
                             <div class="card-icon bg-warning">
                                 <i class="fas fa-bullhorn"></i>
@@ -175,7 +176,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </section>
         </div>
