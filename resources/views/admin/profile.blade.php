@@ -68,13 +68,20 @@
                         aria-expanded="false">
                         <img alt="image" src=""
                             class="rounded-circle-custom">
-                        <div class="d-sm-none d-lg-inline-block no-hover-effect">John</div>
+                        <div class="d-sm-none d-lg-inline-block no-hover-effect">Admin</div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href=""><i class="far fa-user"></i> Edit
+                        <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
                                 Profile</a></li>
-                        <li><a class="dropdown-item" href=""><i class="fas fa-sign-out-alt"></i>
-                                Logout</a></li>
+                        <li>
+                            <form method="POST" action="{{route('logout')}}">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                        Logout
+                                </button>
+                        </form>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -125,7 +132,9 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="" method="post">
+                                    <form action="{{route('edit.profile')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" value="{{$user ->id}}" name="id">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <img src="uploads/user.jpg" alt="" class="profile-photo w_100_p">
@@ -134,15 +143,15 @@
                                             <div class="col-md-9">
                                                 <div class="mb-4">
                                                     <label class="form-label">Name *</label>
-                                                    <input type="text" class="form-control" name="name" value="John Doe">
+                                                    <input type="text" value="{{old('name',$user ->name)}}" class="form-control" name="name">
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label">Email *</label>
-                                                    <input type="text" class="form-control" name="email" value="john@gmail.com">
+                                                    <input type="email" value="{{old('email', $user ->email)}}" class="form-control" name="email" value="john@gmail.com">
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label">Password</label>
-                                                    <input type="password" class="form-control" name="new_password">
+                                                    <input type="password"  class="form-control" name="new_password">
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="form-label">Retype Password</label>

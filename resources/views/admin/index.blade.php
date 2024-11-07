@@ -53,7 +53,7 @@
 
         <div class="navbar-bg"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
-            <form class="form-inline mr-auto">
+            <form class="form-inline mr-auto" method="POST">
                 @csrf
                 <ul class="navbar-nav mr-3">
                     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
@@ -65,14 +65,16 @@
                     <a href="" target="_blank" class="btn btn-warning">Front End</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle no-hover-effect" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle no-hover-effect" href="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <img alt="image" src=""
                             class="rounded-circle-custom">
-                        <div class="d-sm-none d-lg-inline-block no-hover-effect">John</div>
+                {{-- <td> <a class="btn  btn-info" href="{{route('view.product',$user->id)}}">Edit</a></td> --}}
+
+                <div class="d-sm-none d-lg-inline-block no-hover-effect">Admin</div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href=""><i class="far fa-user"></i> Edit
+                        <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
                                 Profile</a></li>
                 <li>
                     <form method="POST" action="{{route('logout')}}">
