@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -85,14 +86,19 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
 
         if ($request->has('image')) {
-            if ($user->image && file_exists(public_path($user->image))) {
-                unlink(public_path($user->image));
+            // if ($user->image && file_exists(public_path($user->image))) {
+            //     unlink(public_path($user->image));
+
+            if (File::exists($user->image)) {
+                (File::delete($user->image));
             }
             $file = $request->file('image');
+
             $filename = time() . '.' . $file->extension();
+
             $path = 'uploads/category/';
-            $file->move(public_path($path), $filename);
-            $user->image = $path . $filename;
+            $filePath = $file->storeAs($path, $filename, 'public');
+            $user->image = 'storage/' . $filePath;
         }
         $user->save();
 
