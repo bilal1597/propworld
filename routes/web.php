@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,10 +22,13 @@ Route::get('profile', [UserController::class, 'getProfile'])->name('view.profile
 Route::post('profile', [UserController::class, 'updateProfile'])->name('edit.profile');
 
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('profile', [UserController::class, 'getProfile'])->name('view.profile');
-//     Route::post('profile/update', [UserController::class, 'updateProfile'])->name('edit.profile');
-// });
+Route::get('about', [AboutController::class, 'getAbout'])->name('view.about');
+Route::post('about', [AboutController::class, 'postAbout'])->name('post.about');
+
+
+
+
+
 
 
 ////////////////AUTHENTICATION /////////////////

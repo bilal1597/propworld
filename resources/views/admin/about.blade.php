@@ -105,7 +105,7 @@
 
                     <li class=""><a class="nav-link" href="setting.html"><i class="fas fa-hand-point-right"></i> <span>Setting</span></a></li>
 
-                    <li class=""><a class="nav-link" href="form.html"><i class="fas fa-hand-point-right"></i> <span>Form</span></a></li>
+                    <li class=""><a class="nav-link" href="{{route('view.about')}}"><i class="fas fa-hand-point-right"></i> <span>About</span></a></li>
 
                     <li class=""><a class="nav-link" href="table.html"><i class="fas fa-hand-point-right"></i> <span>Table</span></a></li>
 
@@ -118,10 +118,7 @@
         <div class="main-content">
             <section class="section">
                 <div class="section-header justify-content-between">
-                    <h1>Form</h1>
-                    <div class="ml-auto">
-                        <a href="" class="btn btn-primary"><i class="fas fa-plus"></i> Button</a>
-                    </div>
+                    <h1>About Content</h1>
                 </div>
                 <div class="section-body">
                     <div class="row">
@@ -131,47 +128,85 @@
                                     <form action="" method="post" enctype="multipart/form-data">
 
                                         <div class="form-group mb-3">
-                                            <label>Text</label>
-                                            <input type="text" class="form-control" name="" value="">
+                                            <label>Main Heading*</label>
+                                            <input type="text" class="form-control" name="main_heading" value="{{old('main_heading')}}">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Existing Image</label>
+                                            <div><img src=""  alt="image"></div>
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Image*</label>
+                                            <input type="file" class="form-control" name="main_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>First Heading*</label>
+                                            <input type="text" class="form-control" name="first_heading" value="{{old('first_heading')}}">
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label>Datepicker</label>
-                                            <input type="text" class="form-control datepicker" name="" value="">
+                                            <label>First Description*</label>
+                                            <input type="text" class="form-control" name="first_description" value="{{old('main_description')}}">
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Datepicker</label>
-                                            <input type="text" class="form-control timepicker" name="" value="">
+                                            <label>Existing Story Image</label>
+                                            <div><img src="" alt="image" width="100px"></div>
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Color</label>
-                                            <input type="text" class="form-control jscolor" name="" value="A2A5FF">
+                                            <label>Change Image* </label>
+                                            <input type="file" class="form-control" name="existing_image" value="">
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Textarea</label>
-                                            <textarea name="" class="form-control h_100" cols="30" rows="10"></textarea>
+                                            <label>Second Heading*</label>
+                                            <input type="text" name="second_heading" value="{{old('second_heading')}}" class="form-control"></input>
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Textarea (Summernote)</label>
-                                            <textarea name="" class="form-control snote" cols="30" rows="10"></textarea>
+                                            <label>Second Description*</label>
+                                            <input type="text" value="{{old('second_description')}}" name="second_description" class="form-control"></input>
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Toggle Option *</label>
-                                            <div class="toggle-container">
-                                                <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" name="" value="Yes">
-                                            </div>
+                                            <label>Third Heading*</label>
+                                            <input type="text" name="third_heading" value="{{old('third_heading')}}" class="form-control"></input>
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Toggle Option *</label>
-                                            <div class="toggle-container">
-                                                <input type="checkbox" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" name="" value="Yes" checked>
-                                            </div>
+                                            <label>Third Description*</label>
+                                            <input type="text" name="third_description" value="third_description" class="form-control"></input>
                                         </div>
+
                                         <div class="form-group mb-3">
-                                            <label>Photo</label>
-                                            <div>
-                                                <input type="file" name="">
-                                            </div>
+                                            <label>Existing Ceo Image</label>
+                                            <div><img src="" alt="image"></div>
                                         </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Image*</label>
+                                            <input type="file" class="form-control" name="ceo_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Existing Ceo 2 Image</label>
+                                            <div><img src="" alt="image"></div>
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Image*</label>
+                                            <input type="file" class="form-control" name="ceo2_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Title</label>
+                                            <input type="text" name="title" value="title" class="form-control"></input>
+                                        </div>
+
+
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
