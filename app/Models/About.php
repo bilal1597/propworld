@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class About extends Model
 {
     use HasFactory, Notifiable;
+
     protected $fillable = [
         'main_heading',
         'first_heading',

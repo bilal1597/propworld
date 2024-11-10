@@ -125,16 +125,21 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('post.about') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" value="{{ $about->id }}" name="id">
 
                                         <div class="form-group mb-3">
                                             <label>Main Heading*</label>
-                                            <input type="text" class="form-control" name="main_heading" value="{{old('main_heading')}}">
+                                            <input type="text" class="form-control" name="main_heading" value="{{ old('main_heading', $about->main_heading) }}">
+                                            @error('main_heading')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label>Existing Image</label>
-                                            <div><img src=""  alt="image"></div>
+                                            <div><img src="{{asset($about ->main_image)}}" alt="image"></div>
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -144,11 +149,11 @@
 
                                         <div class="form-group mb-3">
                                             <label>First Heading*</label>
-                                            <input type="text" class="form-control" name="first_heading" value="{{old('first_heading')}}">
+                                            <input type="text" class="form-control" name="first_heading" value="{{old('first_heading',$about->first_heading)}}">
                                         </div>
                                         <div class="form-group mb-3">
                                             <label>First Description*</label>
-                                            <input type="text" class="form-control" name="first_description" value="{{old('main_description')}}">
+                                            <input type="text" class="form-control" name="first_description" value="{{old('main_description',$about->first_description)}}">
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -163,22 +168,22 @@
 
                                         <div class="form-group mb-3">
                                             <label>Second Heading*</label>
-                                            <input type="text" name="second_heading" value="{{old('second_heading')}}" class="form-control"></input>
+                                            <input type="text" name="second_heading" value="{{old('second_heading',$about->second_heading)}}" class="form-control"></input>
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label>Second Description*</label>
-                                            <input type="text" value="{{old('second_description')}}" name="second_description" class="form-control"></input>
+                                            <input type="text" value="{{old('second_description', $about->second_description)}}" name="second_description" class="form-control"></input>
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label>Third Heading*</label>
-                                            <input type="text" name="third_heading" value="{{old('third_heading')}}" class="form-control"></input>
+                                            <input type="text" name="third_heading" value="{{old('third_heading',$about->third_heading)}}" class="form-control"></input>
                                         </div>
 
                                         <div class="form-group mb-3">
                                             <label>Third Description*</label>
-                                            <input type="text" name="third_description" value="third_description" class="form-control"></input>
+                                            <input type="text" name="third_description" value="{{old('third_description',$about->third_description)}}" class="form-control"></input>
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -211,6 +216,7 @@
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

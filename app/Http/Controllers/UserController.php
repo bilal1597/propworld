@@ -93,12 +93,10 @@ class UserController extends Controller
                 (File::delete($user->image));
             }
             $file = $request->file('image');
-
             $filename = time() . '.' . $file->extension();
-
-            $path = 'uploads/category/';
-            $filePath = $file->storeAs($path, $filename, 'public');
-            $user->image = 'storage/' . $filePath;
+            $path = 'uploads/category/about';
+            $file->move(public_path($path), $filename);
+            $user->image = $path . $filename;
         }
         $user->save();
 
