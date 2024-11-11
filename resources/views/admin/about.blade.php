@@ -139,7 +139,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Existing Image</label>
-                                            <div><img src="{{asset($about ->main_image)}}" alt="image"></div>
+                                            <div><img src="{{asset($about ->main_image)}}" width="100px" alt="image"></div>
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -158,7 +158,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Existing Story Image</label>
-                                            <div><img src="" alt="image" width="100px"></div>
+                                            <div><img src="{{asset($about ->existing_image)}}" alt="image" width="100px"></div>
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -188,7 +188,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Existing Ceo Image</label>
-                                            <div><img src="" alt="image"></div>
+                                            <div><img src="{{asset($about ->ceo_image)}}" width="100px" alt="image"></div>
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -198,7 +198,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Existing Ceo 2 Image</label>
-                                            <div><img src="" alt="image"></div>
+                                            <div><img src="{{asset($about ->ceo2_image)}}" width="100px" alt="image"></div>
                                         </div>
 
                                         <div class="form-group mb-3">

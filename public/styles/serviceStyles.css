@@ -1,0 +1,80 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+i {
+  color: white;
+}
+
+.header {
+  font-size: 15px;
+}
+
+.logo {
+  width: 220px;
+}
+
+.links {
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.links:hover {
+  color: goldenrod;
+  transition: 0.2s ease-in-out;
+}
+
+.contact-nav {
+  font-family: sans-serif;
+  border-radius: 30px;
+  width: 142px;
+  height: 37px;
+}
+
+.title {
+  padding: 90px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url("../pic/building.jpg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.btn-mix {
+  margin-top: -75px;
+  position: absolute;
+}
+
+.footer {
+  margin-top: -50px;
+}
+
+.li {
+  list-style-type: none;
+}
+
+.hover-insta:hover {
+  transition: 0.2s ease;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  background-clip: text;
+  border-radius: 20%;
+  transition: 0.35s;
+  color: transparent;
+  cursor: pointer;
+}
+
+.hover-facebook:hover {
+  color: #1877f2;
+  transition: 0.35s;
+  cursor: pointer;
+}

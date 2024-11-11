@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\File;
 class AboutController extends Controller
 {
 
+    public function showAbout()
+    {
+        $show = About::all();
+        return view('frontend.about_show', compact('show'));
+    }
+
     public function getAbout()
     {
         $about = About::first();

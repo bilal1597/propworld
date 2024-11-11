@@ -22,6 +22,7 @@ Route::get('profile', [UserController::class, 'getProfile'])->name('view.profile
 Route::post('profile', [UserController::class, 'updateProfile'])->name('edit.profile');
 
 
+Route::get('about/show', [AboutController::class, 'showAbout'])->name('show.about');
 Route::get('about', [AboutController::class, 'getAbout'])->name('view.about');
 Route::post('about', [AboutController::class, 'postAbout'])->name('post.about');
 
