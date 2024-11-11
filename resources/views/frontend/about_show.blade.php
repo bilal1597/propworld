@@ -189,7 +189,7 @@
           </div>
 
           <div class="col-lg-6">
-            <img class="shadow" src="{{url('/pic/hoo.png')}}" alt="" />
+            <img class="shadow" src="{{asset($item ->ceo2_image)}}" alt="" />
             <div class="mt-4">
               <h2>Hassan Azhar Faridi</h2>
               <p class="mt-2">Head of Operations</p>

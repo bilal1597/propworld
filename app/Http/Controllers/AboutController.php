@@ -26,7 +26,7 @@ class AboutController extends Controller
     {
 
         $request->validate([
-            'main_heading' => 'required|string|max:255' . $request->id,
+            'main_heading' => 'required|string|max:255', //. $request->id,
             'first_heading' => 'required|string|max:255',
             'first_description' => 'required',
             'second_heading' => 'required',

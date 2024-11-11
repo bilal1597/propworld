@@ -127,13 +127,14 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('post.about') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('post.contact') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <input type="hidden" value="{{ $about->id }}" name="id">
+                                        <input type="hidden" value="{{ $contact->id }}" name="id">
 
                                         <div class="form-group mb-3">
                                             <label>Main Heading*</label>
-                                            <input type="text" class="form-control" name="main_heading" value="{{ old('main_heading', $about->main_heading) }}">
+                                            <input type="text" class="form-control" name="main_heading"
+                                             value="{{ old('main_heading',$contact ->main_heading) }}">
                                             @error('main_heading')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -141,8 +142,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Existing Image</label>
-                                            <div><img src="{{asset($about ->main_image)}}" width="100px" alt="image"></div>
-
+                                            <div><img src="{{asset($contact ->main_image)}}" width="100px" alt="image"></div>
                                         </div>
 
                                         <div class="form-group mb-3">
@@ -152,85 +152,17 @@
 
                                         <div class="form-group mb-3">
                                             <label>First Heading*</label>
-                                            <input type="text" class="form-control" name="first_heading" value="{{old('first_heading',$about->first_heading)}}">
-                                            @error('first_heading')
+                                            <input type="text" class="form-control" name="contact_heading"
+                                            value="{{old('contact_heading',$contact ->contact_heading)}}">
+                                            @error('contact_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                         </div>
                                         <div class="form-group mb-3">
                                             <label>First Description*</label>
-                                            <input type="text" class="form-control" name="first_description" value="{{old('main_description',$about->first_description)}}">
-                                            @error('first_description')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Existing Story Image</label>
-                                            <div><img src="{{asset($about ->existing_image)}}" alt="image" width="100px"></div>
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Change Image* </label>
-                                            <input type="file" class="form-control" name="existing_image" value="">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Second Heading*</label>
-                                            <input type="text" name="second_heading" value="{{old('second_heading',$about->second_heading)}}" class="form-control"></input>
-                                            @error('second_heading')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Second Description*</label>
-                                            <input type="text" value="{{old('second_description', $about->second_description)}}" name="second_description" class="form-control"></input>
-                                            @error('second_description')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Third Heading*</label>
-                                            <input type="text" name="third_heading" value="{{old('third_heading',$about->third_heading)}}" class="form-control"></input>
-                                            @error('third_heading')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Third Description*</label>
-                                            <input type="text" name="third_description" value="{{old('third_description',$about->third_description)}}" class="form-control"></input>
-                                            @error('third_description')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Existing Ceo Image</label>
-                                            <div><img src="{{asset($about ->ceo_image)}}" width="100px" alt="image"></div>
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Change Image*</label>
-                                            <input type="file" class="form-control" name="ceo_image" value="">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Existing Ceo 2 Image</label>
-                                            <div><img src="{{asset($about ->ceo2_image)}}" width="100px" alt="image"></div>
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Change Image*</label>
-                                            <input type="file" class="form-control" name="ceo2_image" value="">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Title</label>
-                                            <input type="text" name="title" value="{{old('title',$about ->title)}}" class="form-control"></input>
-                                            @error('title')
+                                            <input type="text" class="form-control" name="contact_description"
+                                             value="{{old('contact_description',$contact ->contact_description)}}">
+                                            @error('contact_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                         </div>
