@@ -55,7 +55,6 @@
             <img
               style="position: relative; top: -45px; right: 45px"
               class="img-fluid"
-              {{-- src="{{url('/pic/sadiq.png')}}" --}}
               src="{{asset($item ->first_image)}}"
               alt=""
             />
@@ -63,12 +62,12 @@
         </div>
 
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 m-auto">
-          <h5>Al Sadiq Group</h5>
+          <h5>{{$item ->first_project}}</h5>
           <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
-            Sadiq Trade Centre
+            {{$item ->first_heading}}
           </h2>
           <p class="pt-4">    {{--Al sadiq para DB--}}
-            {{$item ->al_sadiq_para}}
+            {{$item ->first_description}}
           </p>
 
           <div class="pt-3">
@@ -98,12 +97,12 @@
         <div
           class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-2 m-auto"
         >
-          <h5>M&H Builders & Developers</h5>
+          <h5>{{$item ->second_project}}</h5>
           <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
-            M&H 12
+            {{$item ->second_heading}}
           </h2>
           <p class="pt-4">       {{--M&H para DB--}}
-            {{$item ->mh_para}}
+            {{$item ->second_description}}
           </p>
 
           <div class="pt-3">
@@ -133,7 +132,7 @@
             <img
               style="position: relative; top: -45px; right: 45px"
               class="img-fluid"
-              src="{{url('/pic/m&h.png')}}"
+              src="{{asset($item ->second_image)}}"
               alt=""
             />
           </div>
@@ -150,19 +149,19 @@
             <img
               style="position: relative; top: -45px; right: 45px"
               class="img-fluid"
-              src="{{url('/pic/RJ.png')}}"
+              src="{{asset($item ->third_image)}}"
               alt=""
             />
           </div>
         </div>
 
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 m-auto">
-          <h5>RJ Group Builders & Developers</h5>
+          <h5>{{$item ->third_project}}</h5>
           <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
-            RJ Heaven
+            {{$item ->third_heading}}
           </h2>     {{--RJ para DB--}}
           <p class="pt-4">
-            {{$item ->rj_para}}
+            {{$item ->third_description}}
           </p>
 
           <div class="pt-3">
