@@ -121,6 +121,8 @@
 
                     <li class=""><a class="nav-link" href="{{route('view.message')}}"><i class="fas fa-hand-point-right"></i> <span>Messages</span></a></li>
 
+                    <li class=""><a class="nav-link" href="{{route('view.project')}}"><i class="fas fa-hand-point-right"></i> <span>Projects</span></a></li>
+
                     <li class=""><a class="nav-link" href="table.html"><i class="fas fa-hand-point-right"></i> <span>Table</span></a></li>
 
                     <li class=""><a class="nav-link" href="invoice.html"><i class="fas fa-hand-point-right"></i> <span>Invoice</span></a></li>

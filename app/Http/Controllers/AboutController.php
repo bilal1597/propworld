@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -10,10 +11,10 @@ use Illuminate\Support\Facades\File;
 class AboutController extends Controller
 {
 
-    public function showAbout()
+    public function showProject()
     {
-        $show = About::all();
-        return view('frontend.about_show', compact('show'));
+        $show = Project::all();
+        return view('frontend.project_show', compact('show'));
     }
 
     public function getAbout()

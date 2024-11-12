@@ -55,7 +55,7 @@ class ContactController extends Controller
 
         $contact->save();
 
-        return redirect()->route('view.contact')->with('success', 'About Page updated successfully.');
+        return redirect()->route('view.contact')->with('success', 'Contact Page updated successfully.');
     }
 
     public function postComplain(Request $request)

@@ -32,7 +32,7 @@
 
     <section class="title">
       <div>
-        <h1 class="display-5 fw-medium text-white">{{$item ->title}}</h1> {{-- title DB --}}
+        <h1 class="display-5 fw-medium text-white">{{$item ->main_title}}</h1> {{-- title DB --}}
       </div>
     </section>
     <!--picture title end-->
@@ -40,9 +40,9 @@
     <!--heading-->
     <section class="text-center mb-5">
       <div class="pb-3">
-        <h2 class="mt-5 display-6 fw-medium">{{$item ->heading }}</h2>  {{--heading DB--}}
+        <h2 class="mt-5 display-6 fw-medium">{{$item ->main_heading }}</h2>  {{--heading DB--}}
 
-        <p class="mt-4 text-secondary">{{$item ->heading_para}}</p>   {{--heading para DB--}}
+        <p class="mt-4 text-secondary">{{$item ->main_description}}</p>   {{--heading para DB--}}
       </div>
     </section>
     <!--heading end-->
@@ -55,7 +55,8 @@
             <img
               style="position: relative; top: -45px; right: 45px"
               class="img-fluid"
-              src="{{url('/pic/sadiq.png')}}"
+              {{-- src="{{url('/pic/sadiq.png')}}" --}}
+              src="{{asset($item ->first_image)}}"
               alt=""
             />
           </div>

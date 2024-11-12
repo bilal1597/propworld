@@ -34,6 +34,7 @@ Route::get('contact', [ContactController::class, 'getContact'])->name('view.cont
 Route::post('contact', [ContactController::class, 'postContact'])->name('post.contact');
 Route::get('message', [ContactController::class, 'getMessage'])->name('view.message');
 
+Route::get('project/show', [AboutController::class, 'showProject'])->name('show.project');
 Route::get('project', [ProjectController::class, 'getProject'])->name('view.project');
 Route::post('project', [ProjectController::class, 'postProject'])->name('post.project');
 
