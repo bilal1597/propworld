@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('login', [UserController::class, 'getLogin'])->name('view.login');
 Route::post('login', [UserController::class, 'postLogin'])->name('post.login');
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
-
 
 
 Route::get('dashboard', [UserController::class, 'index'])->name('view.dashboard');
@@ -32,7 +32,10 @@ Route::post('contact/show', [ContactController::class, 'postComplain'])->name('u
 
 Route::get('contact', [ContactController::class, 'getContact'])->name('view.contact');
 Route::post('contact', [ContactController::class, 'postContact'])->name('post.contact');
+Route::get('message', [ContactController::class, 'getMessage'])->name('view.message');
 
+Route::get('project', [ProjectController::class, 'getProject'])->name('view.project');
+Route::post('project', [ProjectController::class, 'postProject'])->name('post.project');
 
 
 

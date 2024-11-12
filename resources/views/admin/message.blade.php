@@ -6,7 +6,7 @@
 
     <link rel="icon" type="image/png" href="uploads/favicon.png">
 
-    <title>Admin Panel</title>
+    <title>Messages</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -67,11 +67,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle no-hover-effect" href="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img alt="image" src="{{asset($user ->image)}}"
+                        <img alt="image" src=""
                             class="rounded-circle-custom">
                 {{-- <td> <a class="btn  btn-info" href="{{route('view.product',$user->id)}}">Edit</a></td> --}}
 
-                <div class="d-sm-none d-lg-inline-block no-hover-effect">{{$user ->name}}</div>
+                <div class="d-sm-none d-lg-inline-block no-hover-effect"></div>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
@@ -132,55 +132,37 @@
         <div class="main-content">
             <section class="section">
                 <div class="section-header">
-                    <h1>Dashboard</h1>
+                    <h1>Messages</h1>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-primary">
-                                <i class="far fa-user"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total News Categories</h4>
-                                </div>
-                                <div class="card-body">
-                                    12
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-danger">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total News</h4>
-                                </div>
-                                <div class="card-body">
-                                    122
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                    <div class="">
+                        <table class="table table-striped">
 
-                    {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-warning">
-                                <i class="fas fa-bullhorn"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total Users</h4>
-                                </div>
-                                <div class="card-body">
-                                    45
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                                <thead>
+                                  <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Subject</th>
+                                    <th scope="col">Message</th>
+                                    <th scope="col">Message Send Date</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($message as $item)
+                                    <tr>
+                                        <td>{{$loop ->iteration }} </td>
+                                        <td>{{$item->user_name}} </td>
+                                        <td>{{$item->user_subject}} </td>
+                                        <td>{{$item ->user_message}}</td>
+
+                                        <td>{{$item->created_at}} </td>
+
+                                @endforeach
+                                </tbody>
+
+                          </table>
+                    </div>
+
                 </div>
             </section>
         </div>

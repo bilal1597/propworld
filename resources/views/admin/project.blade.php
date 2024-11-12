@@ -53,8 +53,7 @@
 
         <div class="navbar-bg"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
-            <form class="form-inline mr-auto" method="POST">
-                @csrf
+            <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
                     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
                     <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
@@ -65,26 +64,17 @@
                     <a href="" target="_blank" class="btn btn-warning">Front End</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle no-hover-effect" href="" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle no-hover-effect" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img alt="image" src="{{asset($user ->image)}}"
+                        <img alt="image" src=""
                             class="rounded-circle-custom">
-                {{-- <td> <a class="btn  btn-info" href="{{route('view.product',$user->id)}}">Edit</a></td> --}}
-
-                <div class="d-sm-none d-lg-inline-block no-hover-effect">{{$user ->name}}</div>
+                        <div class="d-sm-none d-lg-inline-block no-hover-effect">John</div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
+                        <li><a class="dropdown-item" href=""><i class="far fa-user"></i> Edit
                                 Profile</a></li>
-                <li>
-                    <form method="POST" action="{{route('logout')}}">
-                            @csrf
-                            <button type="submit" class="dropdown-item">
-                                <i class="fas fa-sign-out-alt"></i>
-                                    Logout
-                            </button>
-                    </form>
-                </li>
+                        <li><a class="dropdown-item" href=""><i class="fas fa-sign-out-alt"></i>
+                                Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -119,8 +109,6 @@
 
                     <li class=""><a class="nav-link" href="{{route('view.contact')}}"><i class="fas fa-hand-point-right"></i> <span>Contact</span></a></li>
 
-                    <li class=""><a class="nav-link" href="{{route('view.message')}}"><i class="fas fa-hand-point-right"></i> <span>Messages</span></a></li>
-
                     <li class=""><a class="nav-link" href="table.html"><i class="fas fa-hand-point-right"></i> <span>Table</span></a></li>
 
                     <li class=""><a class="nav-link" href="invoice.html"><i class="fas fa-hand-point-right"></i> <span>Invoice</span></a></li>
@@ -131,60 +119,102 @@
 
         <div class="main-content">
             <section class="section">
-                <div class="section-header">
-                    <h1>Dashboard</h1>
+                <div class="section-header justify-content-between">
+                    <h1>Project Content</h1>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-primary">
-                                <i class="far fa-user"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total News Categories</h4>
-                                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
                                 <div class="card-body">
-                                    12
+                                    <form action="{{ route('post.about') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        {{-- <input type="hidden" value="{{ $about->id }}" name="id"> --}}
+
+                                        <div class="form-group mb-3">
+                                            <label>Main Heading*</label>
+                                            <input type="text" class="form-control" name="main_heading" value="{{ old('main_heading') }}">
+                                            @error('main_heading')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Existing Image</label>
+                                            <div><img src="" width="100px" alt="image"></div>
+
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Image*</label>
+                                            <input type="file" class="form-control" name="main_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>First Heading*</label>
+                                            <input type="text" class="form-control" name="first_heading" value="{{old('first_heading')}}">
+                                            @error('first_heading')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label>First Description*</label>
+                                            <input type="text" class="form-control" name="first_description" value="{{old('main_description')}}">
+                                            @error('first_description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Existing Story Image</label>
+                                            <div><img src="" alt="image" width="100px"></div>
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Image* </label>
+                                            <input type="file" class="form-control" name="existing_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Second Heading*</label>
+                                            <input type="text" name="second_heading" value="{{old('second_heading')}}" class="form-control"></input>
+                                            @error('second_heading')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Second Description*</label>
+                                            <input type="text" value="{{old('second_description')}}" name="second_description" class="form-control"></input>
+                                            @error('second_description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+
+
+
+                                        <div class="form-group mb-3">
+                                            <label>Title</label>
+                                            <input type="text" name="title" value="{{old('title')}}" class="form-control"></input>
+                                            @error('title')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-danger">
-                                <i class="fas fa-book-open"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total News</h4>
-                                </div>
-                                <div class="card-body">
-                                    122
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-warning">
-                                <i class="fas fa-bullhorn"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total Users</h4>
-                                </div>
-                                <div class="card-body">
-                                    45
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </section>
         </div>
-
     </div>
 </div>
 

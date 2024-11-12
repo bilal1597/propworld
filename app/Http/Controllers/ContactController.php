@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactMial;
 use App\Mail\ForgotPasswordMail;
 use App\Models\Contact;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -60,39 +61,39 @@ class ContactController extends Controller
     public function postComplain(Request $request)
     {
         $request->validate([
+            'user_name' => 'required',
             'user_email' => 'required',
+            'user_subject' => 'required',
+            'user_message' => 'required',
         ]);
+
+        $message = new Message();
+        $message->user_name = $request->user_name;
+        $message->user_email = $request->user_email;
+        $message->user_subject = $request->user_subject;
+        $message->user_message = $request->user_message;
+        $message->save();
 
         $admin_data = User::where('id', 1)->first();
 
         $subject = 'Contact Form Message';
+
         $body = '<h2>Visitor Information</h2>';
-        $body .= '<p><strong>Name:</strong> ' . $request->user_name . '</p>';
+        $body .= '<p><strong>Name:</strong> ' .  $request->user_name  . '</p>';
         $body .= '<p><strong>Email:</strong> ' . $request->user_email . '</p>';
         $body .= '<p><strong>Subject:</strong> ' . $request->user_subject . '</p>';
         $body .= '<p><strong>Message:</strong> ' . nl2br(e($request->user_message)) . '</p>';
 
+
+
         Mail::to($admin_data->email)->send(new ContactMial($subject, $body));
 
         return redirect()->back()->with('success', 'Message is sent successfully! We will contact you soon.');
+    }
 
-        // $user = User::where('email', $request->email)->first();
-
-        // // Generate a new token and save it
-        // if ($user) {
-        //     // $user->remember_token = Str::random(50);
-        //     // $user->save();
-
-        //     Mail::to($user->email)->send(new ForgotPasswordMail($user));
-
-        //     return redirect()->route('show.contact')->with(
-        //         'success',
-        //         'Query has been Sent'
-        //     );
-        // } else {
-        //     return redirect()->route('view.contact')->withErrors([
-        //         'email' => 'The provided credentials does not found',
-        //     ]);;
-        //}
+    public function getMessage()
+    {
+        $message = Message::all();
+        return view('admin.message', compact('message'));
     }
 }

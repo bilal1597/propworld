@@ -20,7 +20,7 @@ class ContactMial extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     *  message envelope k liye
      */
     public function envelope(): Envelope
     {
@@ -30,7 +30,7 @@ class ContactMial extends Mailable
     }
 
     /**
-     * Get the message content definition.
+     *  content definition k liye
      */
     public function content(): Content
     {
