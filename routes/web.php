@@ -28,8 +28,11 @@ Route::get('about', [AboutController::class, 'getAbout'])->name('view.about');
 Route::post('about', [AboutController::class, 'postAbout'])->name('post.about');
 
 Route::get('contact/show', [ContactController::class, 'showContact'])->name('show.contact');
+Route::post('contact/show', [ContactController::class, 'postComplain'])->name('user.complain');
+
 Route::get('contact', [ContactController::class, 'getContact'])->name('view.contact');
 Route::post('contact', [ContactController::class, 'postContact'])->name('post.contact');
+
 
 
 

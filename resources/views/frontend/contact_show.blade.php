@@ -62,24 +62,28 @@
           </p>
 
           <div class="pt-2 container">
-            <form class="row" action="#">
+            <form class="row" method="POST" action="{{route('user.complain')}}">
+                @csrf
               <input
                 class="col-lg-6 col-md-5 me-lg-4 me-md-4 border rounded p-2"
                 type="text"
                 placeholder="Name *"
                 required
+                name="user_name"
               />
               <input
                 class="col-lg-5 mt-lg-0 mt-md-0 mt-3 col-md-6 border rounded p-2"
                 type="email"
                 placeholder="Email *"
                 required
+                name="user_email"
               />
               <input
                 class="col-lg-12 mt-3 border rounded p-2"
                 type="text"
                 placeholder="Subject *"
                 required
+                name="user_subject"
               />
               <textarea
                 class="col-lg-12 mt-3 border rounded p-2"
@@ -87,11 +91,14 @@
                 type="text"
                 placeholder="Your Message *"
                 required
+                name="user_message"
               ></textarea>
-            </form>
 
-            <button class="btn btn-warning mb-5">Send</button>
+
           </div>
+          <button type="submit" class="btn btn-warning mb-5">Send</button>
+        </form>
+
         </div>
       </div>
     </section>

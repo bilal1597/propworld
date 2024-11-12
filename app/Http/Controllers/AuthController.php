@@ -32,6 +32,7 @@ class AuthController extends Controller
             $user->remember_token = Str::random(50);
             $user->save();
 
+
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
 
             return redirect()->route('view.forget')->with(
