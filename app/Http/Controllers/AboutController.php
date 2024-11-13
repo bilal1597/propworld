@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
-use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -11,10 +10,10 @@ use Illuminate\Support\Facades\File;
 class AboutController extends Controller
 {
 
-    public function showProject()
+    public function showAbout()
     {
-        $show = Project::all();
-        return view('frontend.project_show', compact('show'));
+        $show = About::all();
+        return view('frontend.about_show', compact('show'));
     }
 
     public function getAbout()
@@ -27,7 +26,7 @@ class AboutController extends Controller
     {
 
         $request->validate([
-            'main_heading' => 'required|string|max:255', //. $request->id,
+            'main_heading' => 'required|string|max:255',
             'first_heading' => 'required|string|max:255',
             'first_description' => 'required',
             'second_heading' => 'required',

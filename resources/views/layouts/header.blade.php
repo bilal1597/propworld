@@ -41,16 +41,16 @@
             <a class="nav-link links" href="">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link links" href="">Project</a>
+            <a class="nav-link links" href="{{route('show.project')}}">Project</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link links" href="">About</a>
+            <a class="nav-link links" href="{{route('show.about')}}">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link links" href="">Services</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link links" href="">Contact</a>
+            <a class="nav-link links" href="{{route('show.contact')}}">Contact</a>
           </li>
           <li class="nav-item me-lg-5">
             <button class="btn btn-warning text-white fw-bold contact-nav">
