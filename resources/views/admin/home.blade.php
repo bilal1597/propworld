@@ -53,8 +53,7 @@
 
         <div class="navbar-bg"></div>
         <nav class="navbar navbar-expand-lg main-navbar">
-            <form class="form-inline mr-auto" method="POST">
-                @csrf
+            <form class="form-inline mr-auto">
                 <ul class="navbar-nav mr-3">
                     <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
                     <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
@@ -62,29 +61,20 @@
             </form>
             <ul class="navbar-nav navbar-right w-100-p justify-content-end">
                 <li class="nav-link">
-                    <a href="{{route('show.project')}}" target="_blank" class="btn btn-warning">Front End</a>
+                    <a href="" target="_blank" class="btn btn-warning">Front End</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle no-hover-effect" href="" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle no-hover-effect" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img alt="image" src="{{asset($user ->image)}}"
+                        <img alt="image" src=""
                             class="rounded-circle-custom">
-                {{-- <td> <a class="btn  btn-info" href="{{route('view.product',$user->id)}}">Edit</a></td> --}}
-
-                <div class="d-sm-none d-lg-inline-block no-hover-effect">{{$user ->name}}</div>
+                        <div class="d-sm-none d-lg-inline-block no-hover-effect">John</div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('view.profile')}}"><i class="far fa-user"></i> Edit
+                        <li><a class="dropdown-item" href=""><i class="far fa-user"></i> Edit
                                 Profile</a></li>
-                <li>
-                    <form method="POST" action="{{route('logout')}}">
-                            @csrf
-                            <button type="submit" class="dropdown-item">
-                                <i class="fas fa-sign-out-alt"></i>
-                                    Logout
-                            </button>
-                    </form>
-                </li>
+                        <li><a class="dropdown-item" href=""><i class="fas fa-sign-out-alt"></i>
+                                Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -111,13 +101,7 @@
 
                     <li class=""><a class="nav-link" href="{{route('view.contact')}}"><i class="fas fa-hand-point-right"></i> <span>Contact</span></a></li>
 
-                    <li class=""><a class="nav-link" href="{{route('view.message')}}"><i class="fas fa-hand-point-right"></i> <span>Messages</span></a></li>
-
-                    <li class=""><a class="nav-link" href="{{route('view.project')}}"><i class="fas fa-hand-point-right"></i> <span>Projects</span></a></li>
-
                     <li class=""><a class="nav-link" href="table.html"><i class="fas fa-hand-point-right"></i> <span>Table</span></a></li>
-
-                    <li class=""><a class="nav-link" href="invoice.html"><i class="fas fa-hand-point-right"></i> <span>Invoice</span></a></li>
 
                 </ul>
             </aside>
@@ -125,21 +109,74 @@
 
         <div class="main-content">
             <section class="section">
-                <div class="section-header">
-                    <h1>Dashboard</h1>
+                <div class="section-header justify-content-between">
+                    <h1>Home Content</h1>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                        <div class="card card-statistic-1">
-                            <div class="card-icon bg-primary">
-                                <i class="far fa-user"></i>
-                            </div>
-                            <div class="card-wrap">
-                                <div class="card-header">
-                                    <h4>Total News Categories</h4>
-                                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
                                 <div class="card-body">
-                                    12
+                                    <form action="{{ route('post.home') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        {{-- <input type="hidden" value="{{ $home->id }}" name="id"> --}}
+
+                                        <div class="form-group mb-3">
+                                            <label>Main Heading*</label>
+                                            <input type="text" class="form-control" name="main_heading" value="{{ old('main_heading',$home ->main_heading) }}">
+                                            @error('main_heading')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Main Description*</label>
+                                            <input type="text" class="form-control" name="main_description" value="{{old('main_description',$home ->main_description)}}">
+                                            @error('main_description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Existing Image</label>
+                                            <div><img src="" width="100px" alt="image"></div>
+
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Main Image*</label>
+                                            <input type="file" class="form-control" name="main_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Last Heading*</label>
+                                            <input type="text" class="form-control" name="last_heading" value="{{old('last_heading',$home ->last_heading)}}">
+                                            @error('last_heading')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label>First Description*</label>
+                                            <input type="text" class="form-control" name="last_description" value="{{old('last_description',$home ->last_description)}}">
+                                            @error('last_description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Last Button*</label>
+                                            <input type="text" class="form-control" name="last_button" value="{{old('last_button',$home ->last_button)}}">
+                                            @error('last_button')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -147,7 +184,6 @@
                 </div>
             </section>
         </div>
-
     </div>
 </div>
 

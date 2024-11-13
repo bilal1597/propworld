@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,11 @@ Route::get('message', [ContactController::class, 'getMessage'])->name('view.mess
 Route::get('project/show', [ProjectController::class, 'showProject'])->name('show.project');
 Route::get('project', [ProjectController::class, 'getProject'])->name('view.project');
 Route::post('project', [ProjectController::class, 'postProject'])->name('post.project');
+
+
+Route::get('home/show', [HomeController::class, 'showHome'])->name('show.home');
+Route::get('home', [HomeController::class, 'getHome'])->name('view.home');
+Route::post('home', [HomeController::class, 'postHome'])->name('post.home');
 
 
 
