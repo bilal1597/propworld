@@ -27,30 +27,29 @@
     <!--navbar end-->
 
     <!--slider-->
-    {{-- @foreach ($show as $item) --}}
-
+    @foreach ($show as $item)
 
     <section>
       <div>
         <h4
           class="text-warning carousel-text"
           style="
-            background-image: url('{{url('/pic/carousel-3.png')}}');
+            background-image: url('{{url($item ->main_image)}}');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
           "
         >                            {{--title DB--}}
-          {{$item ->title}}
+          {{$item ->main_heading}}
           <br />
           <div class="mt-lg-2 pt-lg-1"></div>
           <span class="text-white fs-6"  {{--title-heading DB--}}
-            >{{$item ->title_heading}}
+            >{{$item ->main_description}}
           </span>
         </h4>
       </div>
     </section>
-    {{-- @endforeach --}}
+     @endforeach
     <!--slider end-->
 
     <!--project 1-->
@@ -343,15 +342,14 @@
               text-decoration-style: wavy;
             "
           >
-            Like Our Work?
+            {{$item ->last_heading}}
           </h1>
           <p class="pt-3">
-            Connect with us today for a consultation, project assessment, or any
-            inquiries.
+            {{$item ->last_description}}
           </p>
 
           <button class="btn btn-warning text-white mt-4 px-4">
-            Get In Touch
+            {{$item ->last_button}}
           </button>
         </div>
       </div>

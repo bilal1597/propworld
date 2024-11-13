@@ -119,7 +119,7 @@
                                 <div class="card-body">
                                     <form action="{{ route('post.home') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        {{-- <input type="hidden" value="{{ $home->id }}" name="id"> --}}
+                                        <input type="hidden" value="{{ $home->id }}" name="id">
 
                                         <div class="form-group mb-3">
                                             <label>Main Heading*</label>
@@ -139,7 +139,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Existing Image</label>
-                                            <div><img src="" width="100px" alt="image"></div>
+                                            <div><img src="{{asset($home ->main_image)}}" width="100px" alt="image"></div>
 
                                         </div>
 

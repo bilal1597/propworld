@@ -10,7 +10,8 @@ class HomeController extends Controller
 {
     public function showHome()
     {
-        return view('frontend.home_show');
+        $show = Home::all();
+        return view('frontend.home_show', compact('show'));
     }
 
     public function getHome()
@@ -23,32 +24,38 @@ class HomeController extends Controller
     {
 
         $request->validate([
-            'main_heading' => 'required|string|max:255',
+            'main_heading' => 'required',
+            'main_description' => 'required',
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'contact_heading' => 'required|string|max:255',
-            'contact_description' => 'required',
+            'last_heading' => 'required',
+            'last_description' => 'required',
+            'last_button' => 'required|string|max:255',
         ]);
 
 
-        $contact = Home::findOrFail($request->id);
+        $home = Home::findOrFail($request->id);
 
-        $contact->main_heading = $request->main_heading;
-        $contact->contact_heading = $request->contact_heading;
-        $contact->contact_description = $request->contact_description;
+        $home->main_heading = $request->main_heading;
+        $home->main_description = $request->main_description;
+
+        $home->last_heading = $request->last_heading;
+        $home->last_description = $request->last_description;
+        $home->last_button = $request->last_button;
+
         if ($request->has('main_image')) {
 
-            if (File::exists($contact->main_image)) {
-                (File::delete($contact->main_image));
+            if (File::exists($home->main_image)) {
+                (File::delete($home->main_image));
             }
             $file = $request->file('main_image');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/contact/';
+            $path = 'uploads/category/home/';
             $file->move(public_path($path), $filename);
-            $contact->main_image = $path . $filename;
+            $home->main_image = $path . $filename;
         }
 
-        $contact->save();
+        $home->save();
 
-        return redirect()->route('view.contact')->with('success', 'Contact Page updated successfully.');
+        return redirect()->route('view.home')->with('success', 'Home Page updated successfully.');
     }
 }
