@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Home;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -11,7 +12,8 @@ class HomeController extends Controller
     public function showHome()
     {
         $show = Home::all();
-        return view('frontend.home_show', compact('show'));
+        $project = Project::all();
+        return view('frontend.home_show', compact('show', 'project'));
     }
 
     public function getHome()

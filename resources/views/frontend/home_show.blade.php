@@ -53,15 +53,17 @@
     <!--slider end-->
 
     <!--project 1-->
+    @foreach ($project as $proj )
+
     <section class="container mt-5">
       <div class="row">
         <div
           class="col-lg-6 col-md-6 col-sm-12 text-lg-start text-md-start text-center m-auto"
         >
           <h1>
-            RJ Heaven
+            {{$proj ->first_project}}
             <br />
-            RJ Group Builders & Developers
+            {{$proj ->first_heading}}
           </h1>
                                  {{-- rj-para DB--}}
           <p class="pt-lg-3">
@@ -101,7 +103,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6">
-          <img class="img-fluid" src="{{url('/pic/RJ.png')}}" alt="" />
+          <img class="img-fluid" src="{{url($proj->first_image)}}" alt="" />
         </div>
 
         <div class="mdi bg-white border w-75 m-lg-0 m-md-0 m-auto mt-lg-0 mt-5">
@@ -148,9 +150,9 @@
           class="col-lg-6 col-md-6 text-lg-start text-md-start text-center m-auto"
         >
           <h1>
-            M&H 12
+            {{$proj ->second_project}}
             <br />
-            M&H Builders & Developers
+            {{$proj ->second_heading}}
           </h1>
 
           <p class="pt-lg-3"> {{-- mh-para DB--}}
@@ -189,7 +191,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6">
-          <img class="img-fluid" src="{{url('/pic/m&h.png')}}" alt="" />
+          <img class="img-fluid" src="{{url($proj ->second_image)}}" alt="" />
         </div>
 
         <div
@@ -238,9 +240,9 @@
           class="col-lg-6 col-md-6 text-lg-start text-md-start text-center m-auto"
         >
           <h1>
-            Sadiq Trade Centre
+            {{$proj ->third_project}}
             <br />
-            Al Sadiq Group
+            {{$proj ->third_heading}}
           </h1>
 
           <p class="pt-lg-3">  {{-- sadiq-para DB--}}
@@ -281,7 +283,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 mb-lg-0 mb-5 pb-lg-0 pb-md-5">
-          <img class="img-fluid" src="{{url('/pic/sadiq.png')}}" alt="" />
+          <img class="img-fluid" src="{{url($proj ->third_image)}}" alt="" />
         </div>
 
         <div class="mdi bg-white border w-75 m-lg-0 m-md-0 m-auto">
@@ -319,6 +321,7 @@
         </div>
       </div>
     </section>
+    @endforeach
     <!--project 3 end-->
 
     <!--like it or no >:(-->
