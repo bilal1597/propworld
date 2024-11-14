@@ -60,7 +60,7 @@
             </form>
             <ul class="navbar-nav navbar-right w-100-p justify-content-end">
                 <li class="nav-link">
-                    <a href="{{route('show.project')}}" target="_blank" class="btn btn-warning">Front End</a>
+                    <a href="{{route('show.home')}}" target="_blank" class="btn btn-warning">Front End</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle no-hover-effect" href="" role="button" data-bs-toggle="dropdown"
@@ -104,13 +104,17 @@
 
                     <li class=""><a class="nav-link" href="{{route('view.home')}}"><i class="fas fa-hand-point-right"></i> <span>Home</span></a></li>
 
+                    <li class=""><a class="nav-link" href="{{route('view.project')}}"><i class="fas fa-hand-point-right"></i> <span>Projects</span></a></li>
+
                     <li class=""><a class="nav-link" href="{{route('view.about')}}"><i class="fas fa-hand-point-right"></i> <span>About</span></a></li>
+
+                    <li class=""><a class="nav-link" href="{{route('view.service')}}"><i class="fas fa-hand-point-right"></i> <span>Services</span></a></li>
 
                     <li class=""><a class="nav-link" href="{{route('view.contact')}}"><i class="fas fa-hand-point-right"></i> <span>Contact</span></a></li>
 
                     <li class=""><a class="nav-link" href="{{route('view.message')}}"><i class="fas fa-hand-point-right"></i> <span>Messages</span></a></li>
 
-                    <li class=""><a class="nav-link" href="{{route('view.project')}}"><i class="fas fa-hand-point-right"></i> <span>Projects</span></a></li>
+
 
 
                 </ul>

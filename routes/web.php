@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,11 @@ Route::post('project', [ProjectController::class, 'postProject'])->name('post.pr
 Route::get('home/show', [HomeController::class, 'showHome'])->name('show.home');
 Route::get('home', [HomeController::class, 'getHome'])->name('view.home');
 Route::post('home', [HomeController::class, 'postHome'])->name('post.home');
+
+
+Route::get('service/show', [ServiceController::class, 'showService'])->name('show.service');
+Route::get('service', [ServiceController::class, 'getService'])->name('view.service');
+Route::post('service', [ServiceController::class, 'postService'])->name('post.service');
 
 
 
