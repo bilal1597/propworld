@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\File;
 
 class ServiceController extends Controller
 {
+    public function showService()
+    {
+        return view('frontend.service_show');
+    }
     public function getService()
     {
         $service = Service::first();
@@ -18,6 +22,8 @@ class ServiceController extends Controller
 
     public function postService(Request $request)
     {
+
+
 
         $request->validate([
             'main_heading' => 'required|string|max:255',
@@ -32,6 +38,7 @@ class ServiceController extends Controller
             'service3_description' => 'required',
             'service4_heading' => 'required',
             'service4_description' => 'required',
+
             'second_heading' => 'required',
             'second_description' => 'required',
             'special1_heading' => 'required',
@@ -44,7 +51,7 @@ class ServiceController extends Controller
             'special4_description' => 'required',
             'special5_heading' => 'required',
             'special5_description' => 'required',
-            'special6sa_heading' => 'required',
+            'special6sa_heading' => 'nullable',
             'special6_description' => 'required',
 
             'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
@@ -66,10 +73,12 @@ class ServiceController extends Controller
         $service->service3_description = $request->service3_description;
         $service->service4_heading = $request->service4_heading;
         $service->service4_description = $request->service4_description;
+
         $service->second_heading = $request->second_heading;
         $service->second_description = $request->second_description;
         $service->special1_heading = $request->special1_heading;
         $service->special1_description = $request->special1_description;
+
         $service->special2_heading = $request->special2_heading;
         $service->special2_description = $request->special2_description;
         $service->special3_heading = $request->special3_heading;
@@ -78,7 +87,7 @@ class ServiceController extends Controller
         $service->special4_description = $request->special4_description;
         $service->special5_heading = $request->special5_heading;
         $service->special5_description = $request->special5_description;
-        $service->special6_heading = $request->special6_heading;
+        $service->special6sa_heading = $request->special6sa_heading;
         $service->special6_description = $request->special6_description;
 
         if ($request->has('main_image')) {
@@ -88,7 +97,7 @@ class ServiceController extends Controller
             }
             $file = $request->file('main_image');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/service/';
+            $path = 'uploads/category/servicee/';
             $file->move(public_path($path), $filename);
             $service->main_image = $path . $filename;
         }
@@ -99,7 +108,7 @@ class ServiceController extends Controller
             }
             $file = $request->file('image1');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/service/';
+            $path = 'uploads/category/servicee/';
             $file->move(public_path($path), $filename);
             $service->image1 = $path . $filename;
         }
@@ -110,10 +119,11 @@ class ServiceController extends Controller
             }
             $file = $request->file('image2');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/service/';
+            $path = 'uploads/category/servicee/';
             $file->move(public_path($path), $filename);
             $service->image2 = $path . $filename;
         }
+
 
         $service->save();
 

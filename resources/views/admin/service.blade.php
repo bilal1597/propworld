@@ -182,9 +182,9 @@
 
                                         <div class="form-group mb-3">
                                             <label>Special 1 Description*</label>
-                                            <input type="text" class="form-control" name="service1_description"
-                                             value="{{old('service1_description',$service->service1_description)}}">
-                                            @error('service1_description')
+                                            <input type="text" class="form-control" name="special1_description"
+                                             value="{{old('special1_description',$service->special1_description)}}">
+                                            @error('special1_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                         </div>
@@ -257,7 +257,7 @@
 
 
                                         <div class="form-group mb-3">
-                                            <label>Secial 5 Description*</label>
+                                            <label>Sppecial 5 Description*</label>
                                             <input type="text" class="form-control" name="special5_description"
                                              value="{{old('special5_description',$service->special5_description)}}">
                                             @error('special5_description')
