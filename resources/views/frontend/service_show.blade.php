@@ -30,7 +30,7 @@
 
     <section class="title">
       <div>
-        <h1 class="display-5 fw-medium text-white">{{$item ->title}}</h1> {{--title DB--}}
+        <h1 class="display-5 fw-medium text-white">{{$item ->main_heading}}</h1> {{--title DB--}}
       </div>
     </section>
     <!--picture title end-->
@@ -40,11 +40,11 @@
       <div class="row">
         <div class="text-center pb-4 mb-2">
           <h2 class="border-4 border-warning border-bottom d-inline pb-2">
-            {{$item ->heading}}                 {{--heading DB--}}
+            {{$item ->first_heading}}                 {{--heading DB--}}
           </h2>
 
           <p class="pt-4 mt-3">   {{--heading-para DB--}}
-            {{$item ->headinng_para}}
+            {{$item ->first_description}}
           </p>
         </div>
 
@@ -52,9 +52,9 @@
           class="col-lg-3 col-md-6 col-sm-8 col-8 m-auto text-lg-start text-center ps-lg-4"
         >
           <h5 class="text-warning fw-bold pb-2">01.</h5>
-          <h5 class="fw-semibold pb-2">Meticulous Planning</h5>
+          <h5 class="fw-semibold pb-2">{{$item ->service1_heading}}</h5>
           <p>              {{--service-1-para DB--}}
-            {{$item ->service1_para}}
+            {{$item ->service1_description}}
           </p>
         </div>
 
@@ -62,9 +62,9 @@
           class="col-lg-3 col-md-6 col-sm-8 col-8 m-auto text-lg-start text-center ps-lg-4"
         >
           <h5 class="text-warning fw-bold pb-2">02.</h5>
-          <h5 class="fw-semibold pb-2">Completion On Time</h5>
+          <h5 class="fw-semibold pb-2">{{$item ->service2_heading}}</h5>
           <p>        {{--service-2-para DB--}}
-            {{$item ->service2_para}}
+            {{$item ->service2_description}}
           </p>
         </div>
 
@@ -72,9 +72,9 @@
           class="col-lg-3 col-md-6 col-sm-8 col-8 m-auto text-lg-start text-center ps-lg-4"
         >
           <h5 class="text-warning fw-bold pb-2">03.</h5>
-          <h5 class="fw-semibold pb-2">Perfect Execution</h5>
+          <h5 class="fw-semibold pb-2">{{$item ->service3_heading}}</h5>
           <p>         {{--service-3-para DB--}}
-            {{$item ->service3_para}}
+            {{$item ->service3_description}}
           </p>
         </div>
 
@@ -82,18 +82,18 @@
           class="col-lg-3 col-md-6 col-sm-8 col-8 m-auto text-lg-start text-center ps-lg-4"
         >
           <h5 class="text-warning fw-bold pb-2">04.</h5>
-          <h5 class="fw-semibold pb-2">Affordable Prices</h5>
+          <h5 class="fw-semibold pb-2">{{$item ->service4_heading}}</h5>
           <p>          {{--service-4-para DB--}}
-            {{$item ->service4_para}}
+            {{$item ->service4_description}}
           </p>
         </div>
 
         <div class="row mt-5 text-lg-start m-auto">
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 m-auto">
-            <img class="shadow img-fluid" src="{{url('/pic/services-1.png')}}" alt="" />
+            <img class="shadow img-fluid" src="{{url($item ->image1)}}" alt="" />
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 m-auto">
-            <img class="shadow img-fluid" src="{{url('/pic/services-2.png')}}" alt="" />
+            <img class="shadow img-fluid" src="{{url($item ->image2)}}" alt="" />
           </div>
         </div>
       </div>
@@ -105,12 +105,11 @@
       <div class="row">
         <div class="text-center pb-4 mb-2">
           <h2 class="border-4 border-warning border-bottom d-inline pb-2">
-            Our Specialization
+            {{$item ->second_heading}}
           </h2>
 
           <p class="pt-4 mt-3">
-            Discover the core areas where Property World excels, delivering
-            expertise and innovation in.
+            {{$item ->second_description}}
           </p>
         </div>
 
@@ -120,18 +119,18 @@
               class="col-lg-4 col-md-6 col-sm-12 col-12 text-lg-start text-center pb-4 pe-4 py-lg-5"
             >
               <h3 class="mb-3"><i class="far fa-square text-warning"></i></h3>
-              <h5 class="fw-semibold">Architectural Design and Planning</h5>
+              <h5 class="fw-semibold">{{$item ->special1_heading}}</h5>
               <p>   {{--design-para DB--}}
-                {{$item ->design_para}}
+                {{$item ->special1_description}}
               </p>
             </div>
             <div
               class="col-lg-4 col-md-6 col-sm-12 col-12 text-lg-start text-center pb-4 pe-4 py-lg-5"
             >
               <h3 class="mb-3"><i class="far fa-edit text-warning"></i></h3>
-              <h5 class="fw-semibold">Construction and Building</h5>
+              <h5 class="fw-semibold">{{$item ->special2_heading}}</h5>
               <p>  {{--build-para DB--}}
-                {{$item ->build_para}}
+                {{$item ->special2_description}}
               </p>
             </div>
             <div
@@ -140,9 +139,9 @@
               <h3 class="mb-3">
                 <i class="far fa-hourglass text-warning"></i>
               </h3>
-              <h5 class="fw-semibold">Project Management</h5>
+              <h5 class="fw-semibold">{{$item ->special3_heading}}</h5>
               <p>  {{--management-para DB--}}
-                {{$item ->management_para}}
+                {{$item ->special3_description}}
               </p>
             </div>
 
@@ -150,9 +149,9 @@
               class="col-lg-4 col-md-6 col-sm-12 col-12 text-lg-start text-center pb-4 pe-4"
             >
               <h3 class="mb-3"><i class="far fa-images text-warning"></i></h3>
-              <h5 class="fw-semibold">Consultation and Advisory Services</h5>
+              <h5 class="fw-semibold">{{$item ->special4_heading}}</h5>
               <p>  {{--consult-para DB--}}
-                {{$item ->consult_para}}
+                {{$item ->special4_description}}
               </p>
             </div>
             <div
@@ -161,9 +160,9 @@
               <h3 class="mb-3">
                 <i class="far fa-object-group text-warning"></i>
               </h3>
-              <h5 class="fw-semibold">Quality Assurance</h5>
+              <h5 class="fw-semibold">{{$item ->special5_heading}}</h5>
               <p>   {{--QA-para DB--}}
-                {{$item ->QA_para}}
+                {{$item ->special5_description}}
               </p>
             </div>
             <div
@@ -172,9 +171,9 @@
               <h3 class="mb-3">
                 <i class="far fa-object-ungroup text-warning"></i>
               </h3>
-              <h5 class="fw-semibold">Customer Support and Maintenance</h5>
+              <h5 class="fw-semibold">{{$item ->special6_heading}} </h5>
               <p>  {{--support-para DB--}}
-                {{$item ->support_para}}
+                {{$item ->special6_description}}
               </p>
             </div>
           </div>

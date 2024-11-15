@@ -32,7 +32,7 @@
 
     <section class="title">
       <div>
-        <h1 class="display-5 fw-medium text-white">{{$item ->title}}</h1> {{--title DB--}}
+        <h1 class="display-5 fw-medium text-white">{{$item ->main_heading}}</h1> {{--title DB--}}
       </div>
     </section>
     <!--picture title end-->
@@ -58,12 +58,12 @@
             class="col-lg-6 col-md-12 col-sm-12 text-lg-start text-md-center text-sm-center text-center m-auto"
           >
             <h2 class="border-bottom border-warning border-4 d-inline pb-2">
-              Our Story
+              {{$item ->first_heading}}
             </h2>
 
             <p class="mt-4 pt-3">  {{--story_para DB--}}
 
-                {{$item ->story_para }}
+                {{$item ->first_description }}
             </p>
 
             <div class="row mt-5">
@@ -99,12 +99,11 @@
     <section class="container mb-5">
       <div class="text-center mb-5">
         <h2 class="border-4 border-warning border-bottom d-inline pb-2">
-          What We Offer
+          {{$item ->second_heading}}
         </h2>
 
         <p class="pt-4 mt-3">
-          Discover the comprehensive range of services and solutions that make
-          Property World yourtrusted partner in construction excellence.
+            {{$item ->second_description}}
         </p>
       </div>
 
@@ -145,13 +144,11 @@
     <section class="container">
       <div class="text-center mb-5">
         <h2 class="border-4 border-warning border-bottom d-inline pb-2">
-          Our Expert Team
+          {{$item ->third_heading}}
         </h2>
 
         <p class="pt-4 mt-sm-3">
-          At Property World, our success is driven by a team of dedicated
-          professionals who bring awealth of expertise and passion to every
-          project. Meet the individuals behind ourcommitment to excellence!
+            {{$item ->third_description}}
         </p>
       </div>
 

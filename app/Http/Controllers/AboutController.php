@@ -100,10 +100,8 @@ class AboutController extends Controller
             $about->ceo2_image = $path . $filename;
         }
 
-
-
         $about->save();
 
-        return redirect()->route('view.dashboard')->with('success', 'About Page updated successfully.');
+        return redirect()->route('view.about')->with('success', 'About Page updated successfully.');
     }
 }

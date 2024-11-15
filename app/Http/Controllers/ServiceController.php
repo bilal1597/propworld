@@ -11,8 +11,10 @@ class ServiceController extends Controller
 {
     public function showService()
     {
-        return view('frontend.service_show');
+        $show = Service::all();
+        return view('frontend.service_show', compact('show'));
     }
+
     public function getService()
     {
         $service = Service::first();

@@ -47,7 +47,7 @@
             <a class="nav-link links" href="{{route('show.about')}}">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link links" href="">Services</a>
+            <a class="nav-link links" href="{{route('show.service')}}">Services</a>
           </li>
           <li class="nav-item me-2">
             <a class="nav-link links" href="{{route('show.contact')}}">Contact</a>
