@@ -42,8 +42,8 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-lg-5 col-md-12 col-sm-12 pb-lg-0 pb-md-5 pb-sm-5 pb-5 ps-5"
-          >
+            class="col-lg-5 col-md-12 col-sm-12 pb-lg-0 pb-md-5 pb-sm-5 pb-5 ps-5">
+
             <div class="col-lg-9 border border-5 border-warning mt-5 w-100">
               <img
                 style="position: relative; top: -45px; right: 45px"
@@ -55,8 +55,7 @@
           </div>
 
           <div
-            class="col-lg-6 col-md-12 col-sm-12 text-lg-start text-md-center text-sm-center text-center m-auto"
-          >
+            class="col-lg-6 col-md-12 col-sm-12 text-lg-start text-md-center text-sm-center text-center m-auto"  >
             <h2 class="border-bottom border-warning border-4 d-inline pb-2">
               {{$item ->first_heading}}
             </h2>
@@ -146,6 +145,7 @@
         <h2 class="border-4 border-warning border-bottom d-inline pb-2">
           {{$item ->third_heading}}
         </h2>
+
 
         <p class="pt-4 mt-sm-3">
             {{$item ->third_description}}

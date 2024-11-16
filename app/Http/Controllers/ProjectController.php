@@ -15,6 +15,11 @@ class ProjectController extends Controller
         return view('frontend.project_show', compact('show'));
     }
 
+    public function addProject()
+    {
+        return view('admin.project_add');
+    }
+
     public function getProject()
     {
         $project = Project::first();
