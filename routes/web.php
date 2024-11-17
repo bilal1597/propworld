@@ -37,7 +37,7 @@ Route::post('contact', [ContactController::class, 'postContact'])->name('post.co
 Route::get('message', [ContactController::class, 'getMessage'])->name('view.message');
 
 Route::get('project/show', [ProjectController::class, 'showProject'])->name('show.project');
-Route::get('project/add/show', [ProjectController::class, 'addProject'])->name('add.project');
+Route::get('project/add', [ProjectController::class, 'addProject'])->name('add.project');
 Route::post('project/add', [ProjectController::class, 'storeProject'])->name('store.project');
 Route::get('project', [ProjectController::class, 'getProject'])->name('view.project');
 Route::post('project', [ProjectController::class, 'postProject'])->name('post.project');

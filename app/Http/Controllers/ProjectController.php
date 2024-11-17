@@ -20,6 +20,13 @@ class ProjectController extends Controller
         return view('admin.project_add');
     }
 
+    public function storeProject(Request $request)
+    {
+        $project = Project::create($request->all());
+        $project->save();
+        return redirect()->route('view.project')->with('success', 'Project has been Added');
+    }
+
     public function getProject()
     {
         $project = Project::first();

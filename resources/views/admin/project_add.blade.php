@@ -29,6 +29,14 @@
                                         </div>
 
                                         <div class="form-group mb-3">
+                                            <label>Main Description*</label>
+                                            <input type="text" class="form-control" name="main_description" value="{{ old('main_description') }}">
+                                            @error('main_description')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
                                             <label>Main Image</label>
                                             <div><img src="" width="100px" alt="image"></div>
 
@@ -78,85 +86,43 @@
                                         @enderror
                                         </div>
 
+
                                         <div class="form-group mb-3">
-                                            <label>First Project Image</label>
+                                            <label>Change Project PDF* </label>
+                                            <input type="file" class="form-control" name="pdf" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Multiple Images Heading*</label>
+                                            <input type="text" class="form-control" name="image_heading" value="{{old('image_heading')}}">
+                                            @error('image_heading')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Multiple Images* </label>
+                                            <input type="file" multiple class="form-control" name="multi_image" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Video Heading*</label>
+                                            <input type="text" class="form-control" name="vid_heading" value="{{old('vid_heading')}}">
+                                            @error('vid_heading')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Change Project Video* </label>
+                                            <input type="file" multiple class="form-control" name="video" value="">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Existing Video</label>
                                             <div><img src="" alt="image" width="100px"></div>
                                         </div>
 
-                                        <div class="form-group mb-3">
-                                            <label>Change First Image* </label>
-                                            <input type="file" class="form-control" name="first_image" value="">
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Second Project*</label>
-                                            <input type="text" class="form-control" name="second_project" value="{{old('second_project')}}">
-                                            @error('second_project')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Second Heading*</label>
-                                            <input type="text" class="form-control" name="second_heading" value="{{old('second_heading')}}">
-                                            @error('second_heading')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Second Description*</label>
-                                            <input type="text" class="form-control" name="second_description" value="{{old('second_description')}}">
-                                            @error('second_description')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Second Project Image</label>
-                                            <div><img src="" alt="image" width="100px"></div>
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Change Second Image* </label>
-                                            <input type="file" class="form-control" name="second_image" value="">
-                                        </div>
-
-
-
-                                        <div class="form-group mb-3">
-                                            <label>Third Project*</label>
-                                            <input type="text" class="form-control" name="third_project" value="{{old('third_project')}}">
-                                            @error('third_project')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Third Heading*</label>
-                                            <input type="text" class="form-control" name="third_heading" value="{{old('third_heading')}}">
-                                            @error('third_heading')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Third Description*</label>
-                                            <input type="text" class="form-control" name="third_description" value="{{old('third_description')}}">
-                                            @error('third_description')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Third Project Image</label>
-                                            <div><img src="" alt="image" width="100px"></div>
-                                        </div>
-
-                                        <div class="form-group mb-3">
-                                            <label>Change Third Image* </label>
-                                            <input type="file" class="form-control" name="third_image" value="">
-                                        </div>
 
 
                                         <div class="form-group">
