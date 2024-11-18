@@ -22,9 +22,80 @@ class ProjectController extends Controller
 
     public function storeProject(Request $request)
     {
-        $project = Project::create($request->all());
+        $request->validate([
+            'main_heading' => 'required',
+            'main_description' => 'required',
+            'first_heading' => 'required',
+            'first_description' => 'required',
+            'point1' => 'required',
+            'point2' => 'required',
+            'point3' => 'required',
+            'image_heading' => 'required',
+            'vid_heading' => 'required',
+            'main_image' => 'nullable|image|mimes:png,jpg,jpeg,webp',
+            'multi_image.*' => 'nullable|image|mimes:png,jpg,jpeg,webp',
+            'pdf' => 'nullable',
+            'video' => 'nullable',
+        ]);
+
+        $project = new Project();
+        $project->main_heading = $request->main_heading;
+        $project->main_description = $request->main_description;
+        $project->first_heading = $request->first_heading;
+        $project->first_description = $request->first_description;
+        $project->point1 = $request->point1;
+        $project->point2 = $request->point2;
+        $project->point3 = $request->point3;
+        $project->image_heading = $request->image_heading;
+        $project->vid_heading = $request->vid_heading;
+
+        if ($request->hasFile('main_image')) {
+            $file = $request->file('main_image');
+            $filename = time() . '.' . $file->extension();
+            $path = public_path('uploads/category/projects/');
+            $file->move($path, $filename);
+            $project->main_image = $path . $filename;
+        }
+
+        if ($request->hasFile('pdf')) {
+            $file = $request->file('pdf');
+            $filename = time() . '.' . $file->extension();
+            $path = public_path('uploads/category/projects/');
+            $file->move($path, $filename);
+            $project->pdf = $path . $filename;
+        }
+
+        if ($request->hasFile('video')) {
+            $file = $request->file('video');
+            $filename = time() . '.' . $file->extension();
+            $path = public_path('uploads/category/projects/');
+            $file->move($path, $filename);
+            $project->video = $path . $filename;
+        }
+
         $project->save();
-        return redirect()->route('view.project')->with('success', 'Project has been Added');
+
+
+        $imagePath = []; // Initialize the array to store image paths
+
+        if ($request->hasFile('multi_image')) {
+            foreach ($request->file('multi_image') as $image) {
+                // Generate a unique filename
+                $multi = time() . '_' . uniqid() . '.' . $image->extension();
+                $path = public_path('uploads/category/multi/'); // Use public_path
+
+                // Move the image to the specified path
+                $image->move($path, $multi);
+
+                // Store the relative path in the database
+                $project->projectImages()->create(['multi_image' => $path . $multi]);
+
+                // Add the full path to the array (optional)
+                $imagePath[] = $path . $multi;
+            }
+        }
+
+        return redirect()->route('add.project')->with('success', 'Project has been Added');
     }
 
     public function getProject()

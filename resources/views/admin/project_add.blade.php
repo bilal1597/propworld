@@ -102,7 +102,7 @@
 
                                         <div class="form-group mb-3">
                                             <label>Change Multiple Images* </label>
-                                            <input type="file" multiple class="form-control" name="multi_image" value="">
+                                            <input type="file" multiple class="form-control" name="multi_image[]" value="">
                                         </div>
 
                                         <div class="form-group mb-3">

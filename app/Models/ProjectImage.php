@@ -8,7 +8,7 @@ class ProjectImage extends Model
 {
     protected $fillable = [
         'product_id',
-        'images'
+        'multi_image'
     ];
     public function project()
     {
