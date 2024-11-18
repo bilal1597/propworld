@@ -15,6 +15,12 @@ class ProjectController extends Controller
         return view('frontend.project_show', compact('show'));
     }
 
+    public function listProject()
+    {
+        $data = Project::all();
+        return view('admin.list_project', compact('data'));
+    }
+
     public function addProject()
     {
         return view('admin.project_add');
@@ -23,6 +29,13 @@ class ProjectController extends Controller
     public function storeProject(Request $request)
     {
         $request->validate([
+            'builder_name' => 'required',
+            'project_name' => 'required',
+            'project_description' => 'required',
+            'prj_point1' => 'required',
+            'prj_point2' => 'required',
+            'prj_point3' => 'required',
+
             'main_heading' => 'required',
             'main_description' => 'required',
             'first_heading' => 'required',
@@ -39,6 +52,13 @@ class ProjectController extends Controller
         ]);
 
         $project = new Project();
+        $project->builder_name = $request->builder_name;
+        $project->project_name = $request->project_name;
+        $project->project_description = $request->project_description;
+        $project->prj_point1 = $request->prj_point1;
+        $project->prj_point2 = $request->prj_point2;
+        $project->prj_point3 = $request->prj_point3;
+
         $project->main_heading = $request->main_heading;
         $project->main_description = $request->main_description;
         $project->first_heading = $request->first_heading;
@@ -61,7 +81,7 @@ class ProjectController extends Controller
             $file = $request->file('pdf');
             $filename = time() . '.' . $file->extension();
             $path = public_path('uploads/category/projects/');
-            $file->move($path, $filename);
+            $file->move(public_path($path), $filename);
             $project->pdf = $path . $filename;
         }
 
@@ -104,46 +124,50 @@ class ProjectController extends Controller
         return view('admin.project', compact('project'));
     }
 
-    public function postProject(Request $request)
+    public function editProject(Request $request)
     {
 
         $request->validate([
-            'main_title' => 'required|string|max:255',
-            'main_heading' => 'required|string|max:255',
+            'builder_name' => 'required',
+            'project_name' => 'required',
+            'project_description' => 'required',
+            'prj_point1' => 'required',
+            'prj_point2' => 'required',
+            'prj_point3' => 'required',
+
+            'main_heading' => 'required',
             'main_description' => 'required',
-            'first_project' => 'required',
             'first_heading' => 'required',
             'first_description' => 'required',
-            'second_project' => 'required',
-            'second_heading' => 'required',
-            'second_description' => 'required',
-            'third_project' => 'required',
-            'third_heading' => 'required',
-            'third_description' => 'required',
-            'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'first_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'second_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'third_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'point1' => 'required',
+            'point2' => 'required',
+            'point3' => 'required',
+            'image_heading' => 'required',
+            'vid_heading' => 'required',
+            'main_image' => 'nullable|image|mimes:png,jpg,jpeg,webp',
+            'multi_image.*' => 'nullable|image|mimes:png,jpg,jpeg,webp',
+            'pdf' => 'nullable',
+            'video' => 'nullable',
         ]);
-
 
         $project = Project::findOrFail($request->id);
 
-        $project->main_title = $request->main_title;
+        $project->builder_name = $request->builder_name;
+        $project->project_name = $request->project_name;
+        $project->project_description = $request->project_description;
+        $project->prj_point1 = $request->prj_point1;
+        $project->prj_point2 = $request->prj_point2;
+        $project->prj_point3 = $request->prj_point3;
+
         $project->main_heading = $request->main_heading;
         $project->main_description = $request->main_description;
-
-        $project->first_project = $request->first_project;
         $project->first_heading = $request->first_heading;
         $project->first_description = $request->first_description;
-
-        $project->second_project = $request->second_project;
-        $project->second_heading = $request->second_heading;
-        $project->second_description = $request->second_description;
-
-        $project->third_project = $request->third_project;
-        $project->third_heading = $request->third_heading;
-        $project->third_description = $request->third_description;
+        $project->point1 = $request->point1;
+        $project->point2 = $request->point2;
+        $project->point3 = $request->point3;
+        $project->image_heading = $request->image_heading;
+        $project->vid_heading = $request->vid_heading;
 
 
         if ($request->has('main_image')) {
@@ -153,48 +177,62 @@ class ProjectController extends Controller
             }
             $file = $request->file('main_image');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/project/';
-            $file->move(public_path($path), $filename);
+            $path = 'uploads/category/projects/';
+            $file->move($path, $filename);
             $project->main_image = $path . $filename;
         }
 
-        if ($request->has('first_image')) {
+        if ($request->has('pdf')) {
 
-            if (File::exists($project->first_image)) {
-                (File::delete($project->first_image));
+            if (File::exists($project->pdf)) {
+                (File::delete($project->pdf));
             }
-            $file = $request->file('first_image');
+            $file = $request->file('pdf');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/project/';
-            $file->move(public_path($path), $filename);
-            $project->first_image = $path . $filename;
+            $path = public_path('uploads/category/projects/');
+            $file->move($path, $filename);
+            $project->pdf = $path . $filename;
         }
 
-        if ($request->has('second_image')) {
+        if ($request->has('video')) {
 
-            if (File::exists($project->second_image)) {
-                (File::delete($project->second_image));
+            if (File::exists($project->video)) {
+                (File::delete($project->video));
             }
-            $file = $request->file('second_image');
+            $file = $request->file('video');
             $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/project/';
-            $file->move(public_path($path), $filename);
-            $project->second_image = $path . $filename;
-        }
-
-        if ($request->has('third_image')) {
-
-            if (File::exists($project->third_image)) {
-                (File::delete($project->third_image));
-            }
-            $file = $request->file('third_image');
-            $filename = time() . '.' . $file->extension();
-            $path = 'uploads/category/project/';
-            $file->move(public_path($path), $filename);
-            $project->third_image = $path . $filename;
+            $path = public_path('uploads/category/projects/');
+            $file->move($path, $filename);
+            $project->video = $path . $filename;
         }
 
         $project->save();
+
+
+
+        if ($request->hasFile('multi_image')) {
+            // Delete existing product images
+            foreach ($project->projectImages as $image) {
+                if (File::exists($image->multi_image)) {
+                    (File::delete($image->multi_image));
+                }
+                $image->delete();
+            }
+            $imagePath = [];
+            foreach ($request->file('multi_image') as $image) {
+
+                $multi = time() . '_' . uniqid() . '.' . $image->extension();
+                $path = public_path('uploads/category/multi/');
+
+
+                $image->move($path, $multi);
+
+
+                $project->projectImages()->create(['multi_image' => $path . $multi]);
+
+                $imagePath[] = $path . $multi;
+            }
+        }
 
         return redirect()->route('view.project')->with('success', 'Project Page updated successfully.');
     }

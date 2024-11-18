@@ -18,7 +18,54 @@
 
                                     <form action="{{ route('store.project') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        {{-- <input type="hidden" value="{{ $project->id }}" name="id"> --}}
+
+                                        <div class="form-group mb-3">
+                                            <label>Builder Name*</label>
+                                            <input type="text" class="form-control" name="builder_name" value="{{ old('builder_name') }}">
+                                            @error('builder_name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Project Name*</label>
+                                            <input type="text" class="form-control" name="project_name" value="{{ old('project_name') }}">
+                                            @error('project_name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Project Description*</label>
+                                            <input type="text" class="form-control" name="project_description" value="{{old('project_description')}}">
+                                            @error('project_description')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Project Point 1*</label>
+                                            <input type="text" class="form-control" name="prj_point1" value="{{old('prj_point1')}}">
+                                            @error('prj_point1')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Project Point 2*</label>
+                                            <input type="text" class="form-control" name="prj_point2" value="{{old('prj_point2')}}">
+                                            @error('prj_point2')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label>Project Point 3*</label>
+                                            <input type="text" class="form-control" name="prj_point3" value="{{old('prj_point3')}}">
+                                            @error('prj_point3')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        </div>
 
                                         <div class="form-group mb-3">
                                             <label>Main Heading*</label>

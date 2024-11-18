@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $fillable = [
+        'builder_name',
+        'project_name',
+        'project_description',
+        'prj_point1',
+        'prj_point2',
+        'prj_point3',
         'main_heading',
         'main_description',
         'main_image',
