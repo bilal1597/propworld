@@ -234,7 +234,7 @@ class ProjectController extends Controller
             }
         }
 
-        return redirect()->route('view.project')->with('success', 'Project Page updated successfully.');
+        return redirect()->route('list.project')->with('success', 'Project Page updated successfully.');
     }
 
     public function deleteProject($id)

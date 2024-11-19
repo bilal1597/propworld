@@ -63,34 +63,33 @@
           class="col-lg-6 col-md-6 col-sm-12 text-lg-start text-md-start text-center m-auto"
         >
           <h1>
-            {{$proj ->first_project}}
+            {{$proj ->builder_name}}
             <br />
-            {{$proj ->first_heading}}
+            {{$proj ->project_name}}
           </h1>
                                  {{-- rj-para DB--}}
           <p class="pt-lg-3">
-            {{-- {{$item ->rj_para }} --}}
+            {{$proj ->project_description }}
           </p>
 
           <div class="row pt-lg-0 pt-md-0 pt-3">
             <p>
-              <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >Easy Payment Plans
+              <i class="far fas fas fa-angle-double-right text-warning pe-2"></i>
+              {{$proj ->prj_point1}}
             </p>
 
             <p>
               <i
                 class="far fas fas fa-angle-double-right text-warning pe-2"
               ></i>
-              Prime Location of Allama Iqbal Road
+              {{$proj ->prj_point2}}
             </p>
 
             <p>
               <i
                 class="far fas fas fa-angle-double-right text-warning pe-2"
               ></i>
-              All Basic Amenities of Life are Present within the Project
-              Boundary
+              {{$proj ->prj_point3}}
             </p>
           </div>
 
@@ -105,7 +104,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6">
-          <img class="img-fluid" src="{{url($proj->first_image)}}" alt="" />
+          <img class="img-fluid" src="{{url($proj ->main_image)}}" alt="" />
         </div>
 
         <div class="mdi bg-white border w-75 m-lg-0 m-md-0 m-auto mt-lg-0 mt-5">
@@ -146,183 +145,11 @@
     <!--project 1 end-->
 
     <!--project 2-->
-    <section class="container">
-      <div class="row">
-        <div
-          class="col-lg-6 col-md-6 text-lg-start text-md-start text-center m-auto"
-        >
-          <h1>
-            {{$proj ->second_project}}
-            <br />
-            {{$proj ->second_heading}}
-          </h1>
 
-          <p class="pt-lg-3"> {{-- mh-para DB--}}
-            {{-- {{$item ->mh_para }} --}}
-          </p>
-
-          <div class="row pt-lg-0 pt-md-0 pt-3">
-            <p>
-              <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >42 month Payment schedule
-            </p>
-
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Available on Pre-launching Price
-            </p>
-
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Registered in FBR Amnesty Scheme
-            </p>
-          </div>
-
-          <a target="_blank" href="{{url('/project-details/project-24.html')}}"
-            ><button
-              class="btn btn-warning pt-lg-1 mt-lg-0 mt-md-0 mt-3 mb-lg-0 mb-5"
-              style="border-radius: 0%"
-            >
-              READ MORE
-            </button></a
-          >
-        </div>
-
-        <div class="col-lg-6 col-md-6">
-          <img class="img-fluid" src="{{url($proj ->second_image)}}" alt="" />
-        </div>
-
-        <div
-          class="mdi bg-white border w-75 m-lg-0 m-md-0 m-auto mt-lg-0 mt-5 mb-5"
-        >
-          <div class="row p-4">
-            <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
-              <div>
-                <img class="img-fluid" src="{{url('/pic/house.png')}}" alt="" />
-              </div>
-              <div class="mt-2 ms-2">
-                <h2 class="col-lg-2 text-warning fw-semibold">100</h2>
-                <p class="text-secondary">Apartments</p>
-              </div>
-            </div>
-
-            <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
-              <div>
-                <img class="img-fluid" src="{{url('/pic/cabinet.png')}}" alt="" />
-              </div>
-              <div class="mt-2 ms-2">
-                <h2 class="col-lg-2 text-warning fw-semibold">50</h2>
-                <p class="text-secondary">Storages</p>
-              </div>
-            </div>
-
-            <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
-              <div>
-                <img class="img-fluid" src="{{url('/pic/ruler.png')}}" alt="" />
-              </div>
-              <div class="mt-2 ms-2">
-                <h2 class="col-lg-2 text-warning fw-semibold">2500M</h2>
-                <p class="text-secondary">Site Area</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <!--project 2 end-->
 
     <!--project 3-->
-    <section class="container">
-      <div class="row">
-        <div
-          class="col-lg-6 col-md-6 text-lg-start text-md-start text-center m-auto"
-        >
-          <h1>
-            {{$proj ->third_project}}
-            <br />
-            {{$proj ->third_heading}}
-          </h1>
 
-          <p class="pt-lg-3">  {{-- sadiq-para DB--}}
-            {{-- {{$item ->sadiq_para }} --}}
-          </p>
-
-          <div class="row pt-lg-0 pt-md-0 pt-3">
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Modern amenities
-            </p>
-
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Flexible office spaces
-            </p>
-
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Prime Location of Captain Fareed Bukhari Road, SMCHS
-            </p>
-          </div>
-
-          <a target="_blank" href="{{url('/project-details/project-25.html')}}"
-            ><button
-              class="btn btn-warning pt-lg-1 mt-lg-0 mt-md-0 mt-3 mb-lg-0 mb-5"
-              style="border-radius: 0%"
-            >
-              READ MORE
-            </button></a
-          >
-        </div>
-
-        <div class="col-lg-6 col-md-6 mb-lg-0 mb-5 pb-lg-0 pb-md-5">
-          <img class="img-fluid" src="{{url($proj ->third_image)}}" alt="" />
-        </div>
-
-        <div class="mdi bg-white border w-75 m-lg-0 m-md-0 m-auto">
-          <div class="row p-4">
-            <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
-              <div>
-                <img class="img-fluid" src="{{url('/pic/house.png')}}" alt="" />
-              </div>
-              <div class="mt-2 ms-2">
-                <h2 class="col-lg-2 text-warning fw-semibold">100</h2>
-                <p class="text-secondary">Apartments</p>
-              </div>
-            </div>
-
-            <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
-              <div>
-                <img class="img-fluid" src="{{url('/pic/cabinet.png')}}" alt="" />
-              </div>
-              <div class="mt-2 ms-2">
-                <h2 class="col-lg-2 text-warning fw-semibold">50</h2>
-                <p class="text-secondary">Storages</p>
-              </div>
-            </div>
-
-            <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
-              <div>
-                <img class="img-fluid" src="{{url('/pic/ruler.png')}}" alt="" />
-              </div>
-              <div class="mt-2 ms-2">
-                <h2 class="col-lg-2 text-warning fw-semibold">2500M</h2>
-                <p class="text-secondary">Site Area</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     @endforeach
     <!--project 3 end-->
 
