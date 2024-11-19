@@ -104,7 +104,7 @@
 
                     <li class=""><a class="nav-link" href="{{route('view.home')}}"><i class="fas fa-hand-point-right"></i> <span>Home</span></a></li>
 
-                    <li class=""><a class="nav-link" href="{{route('view.project')}}"><i class="fas fa-hand-point-right"></i> <span>Projects</span></a></li>
+                    <li class=""><a class="nav-link" href="{{route('list.project')}}"><i class="fas fa-hand-point-right"></i> <span>Projects</span></a></li>
 
                     <li class=""><a class="nav-link" href="{{route('view.about')}}"><i class="fas fa-hand-point-right"></i> <span>About</span></a></li>
 
