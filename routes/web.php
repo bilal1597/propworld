@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\detailProjController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
@@ -43,6 +44,8 @@ Route::post('project/add', [ProjectController::class, 'storeProject'])->name('st
 Route::get('project/{id}', [ProjectController::class, 'getProject'])->name('view.project');
 Route::post('project', [ProjectController::class, 'editProject'])->name('post.project');
 Route::post('project/{id}', [ProjectController::class, 'deleteProject'])->name('delete.project');
+
+Route::get('projects/{id}', [detailProjController::class, 'projectDetails'])->name('detail.project');
 
 
 Route::get('home/show', [HomeController::class, 'showHome'])->name('show.home');

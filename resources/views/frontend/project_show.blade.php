@@ -161,7 +161,7 @@
             {{$item ->third_heading}}
           </h2>     {{--RJ para DB--}}
           <p class="pt-4">
-            {{$item ->third_description}}
+            {{$item ->first_project}}
           </p>
 
           <div class="pt-3">
