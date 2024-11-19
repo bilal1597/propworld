@@ -37,24 +37,28 @@
                                                     <td>{{ $project->builder_name }}</td>
                                                     <td>{{ $project->project_name }}</td>
                                                     <td>
-                                                        <a href="{{ route('view.project', $project->id) }}"
-
-                                                            class="btn btn-info btn-sm">View</a>
+                                                        <div>
+                                                        <a href="{{ route('view.project', $project->id) }}" class="btn btn-info btn-sm">
+                                                            View</a>
+                                                        </div>
                                                     </td>
                                                     <td class="d-flex">
-                                                        <a class="btn btn-warning btn-sm me-1"
-                                                            {{-- href="{{ route('admin.project-edit', $project->id) }}"> --}}
-                                                            ><i
-                                                                class="fas fa-edit"></i></a>
-                                                        {{-- <form action="{{ route('admin.project-delete', $project->id) }}" method="post">
-                                                            @method('DELETE')
-                                                            @csrf --}}
+                                                        <div>
+                                                            <a class="btn btn-warning btn-sm me-3"
+                                                            href="{{ route('view.project', $project->id) }}">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        </div>
+
+                                                        <form action="{{ route('delete.project', $project->id) }}" method="POST">
+                                                            {{-- @method('DELETE') --}}
+                                                            @csrf
                                                             <button
                                                                 onClick="return confirm('Are you sure you want to delete this project?');"
                                                                 type="submit" class="btn btn-danger btn-sm">
                                                                 <i class="fas fa-trash"></i>
                                                             </button>
-                                                        {{-- </form> --}}
+                                                        </form>
                                                     </td>
                                                 @empty
                                                 </tr>

@@ -83,11 +83,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="form-group mb-3">
-                                            <label>Main Image</label>
-                                            <div><img src="" width="100px" alt="image"></div>
 
-                                        </div>
 
                                         <div class="form-group mb-3">
                                             <label>Change Main Image*</label>
@@ -165,10 +161,6 @@
                                             <input type="file" multiple class="form-control" name="video" value="">
                                         </div>
 
-                                        <div class="form-group mb-3">
-                                            <label>Existing Video</label>
-                                            <div><img src="" alt="image" width="100px"></div>
-                                        </div>
 
 
 

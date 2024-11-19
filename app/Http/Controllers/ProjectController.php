@@ -72,7 +72,7 @@ class ProjectController extends Controller
         if ($request->hasFile('main_image')) {
             $file = $request->file('main_image');
             $filename = time() . '.' . $file->extension();
-            $path = public_path('uploads/category/projects/');
+            $path = 'uploads/category/projects/';
             $file->move($path, $filename);
             $project->main_image = $path . $filename;
         }
@@ -80,7 +80,7 @@ class ProjectController extends Controller
         if ($request->hasFile('pdf')) {
             $file = $request->file('pdf');
             $filename = time() . '.' . $file->extension();
-            $path = public_path('uploads/category/projects/');
+            $path = 'uploads/category/projects/';
             $file->move(public_path($path), $filename);
             $project->pdf = $path . $filename;
         }
@@ -88,7 +88,7 @@ class ProjectController extends Controller
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $filename = time() . '.' . $file->extension();
-            $path = public_path('uploads/category/projects/');
+            $path = 'uploads/category/projects/';
             $file->move($path, $filename);
             $project->video = $path . $filename;
         }
@@ -102,10 +102,10 @@ class ProjectController extends Controller
             foreach ($request->file('multi_image') as $image) {
                 // Generate a unique filename
                 $multi = time() . '_' . uniqid() . '.' . $image->extension();
-                $path = public_path('uploads/category/multi/'); // Use public_path
+                $path = 'uploads/category/multi/'; // Use public_path
 
                 // Move the image to the specified path
-                $image->move($path, $multi);
+                $image->move(public_path($path), $multi);
 
                 // Store the relative path in the database
                 $project->projectImages()->create(['multi_image' => $path . $multi]);
@@ -118,9 +118,9 @@ class ProjectController extends Controller
         return redirect()->route('add.project')->with('success', 'Project has been Added');
     }
 
-    public function getProject()
+    public function getProject($id)
     {
-        $project = Project::first();
+        $project = Project::findOrFail($id);
         return view('admin.project', compact('project'));
     }
 
@@ -189,7 +189,7 @@ class ProjectController extends Controller
             }
             $file = $request->file('pdf');
             $filename = time() . '.' . $file->extension();
-            $path = public_path('uploads/category/projects/');
+            $path = 'uploads/category/projects/';
             $file->move($path, $filename);
             $project->pdf = $path . $filename;
         }
@@ -201,7 +201,7 @@ class ProjectController extends Controller
             }
             $file = $request->file('video');
             $filename = time() . '.' . $file->extension();
-            $path = public_path('uploads/category/projects/');
+            $path = 'uploads/category/projects/';
             $file->move($path, $filename);
             $project->video = $path . $filename;
         }
@@ -235,5 +235,30 @@ class ProjectController extends Controller
         }
 
         return redirect()->route('view.project')->with('success', 'Project Page updated successfully.');
+    }
+
+    public function deleteProject($id)
+    {
+        $project = Project::findOrFail($id);
+        if (File::exists(public_path($project->main_image))) {
+            File::delete(public_path($project->main_image));
+        }
+        if (File::exists(public_path($project->pdf))) {
+            File::delete(public_path($project->pdf));
+        }
+        if (File::exists(public_path($project->video))) {
+            File::delete(public_path($project->video));
+        }
+
+        foreach ($project->projectImages as $image) {
+            if (File::exists(public_path($project->multi_image))) {
+                File::delete(public_path($project->multi_image));
+            }
+            $image->delete();
+        }
+
+        $project->delete();
+
+        return redirect()->route('list.project')->with('Successfully Deleted');
     }
 }

@@ -42,6 +42,7 @@ Route::get('project/add', [ProjectController::class, 'addProject'])->name('add.p
 Route::post('project/add', [ProjectController::class, 'storeProject'])->name('store.project');
 Route::get('project', [ProjectController::class, 'getProject'])->name('view.project');
 Route::post('project', [ProjectController::class, 'editProject'])->name('post.project');
+Route::post('project/{id}', [ProjectController::class, 'deleteProject'])->name('delete.project');
 
 
 Route::get('home/show', [HomeController::class, 'showHome'])->name('show.home');
