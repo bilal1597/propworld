@@ -34,32 +34,33 @@
                     <p><i class="arrow right"></i> {{ $project->point2 }}</p>
                     <p><i class="arrow right"></i> {{ $project->point3 }}</p>
                     <div class="button mt-5">
-                        <a target="_blank" href="{{ asset('uploads/' . $project->pdf ) }}"
+                        <a target="_blank" href="{{ asset($project ->pdf) }}"
                             class="btn-read btn text-dark ">Download Brochure <i class="fa-solid fa-file-pdf"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 ">
                     <div class="img ">
-                        <img src="{{ asset('uploads/' . $project->main_image ) }}" alt="Responsive Image"
+                        <img src="{{ asset($project ->main_image) }}" alt="Responsive Image"
                             width="500px" class="img-fluid">
                     </div>
                 </div>
             </div>
         </div>
 
-        {{-- @if (!$images->isEmpty()) --}}
+        @if (!$images->isEmpty())
             <div class="container mt-5">
                 <h2 class="mt-4 mb-4 text-center"> {{ $project->image_heading }}</h2>
                 <div class="row">
-                    {{-- @foreach ($images as $image)
-                        <div class="col-md-4 mb-3">
-                            <img src="{{ asset('uploads/' . $image->multi_image ) }}" alt="Project Image"
-                                class="img-fluid">
-                        </div>
-                    @endforeach --}}
+
+                    @foreach ($images as $image)
+                    <div class="col-md-4 mb-3">
+                        <img src="{{ asset($image->multi_image) }}" alt="Project Image" class="img-fluid">
+                    </div>
+                    @endforeach
+
                 </div>
             </div>
-        {{-- @endif --}}
+        @endif
     </section>
     <!-- section property - description  ends-->
 
@@ -71,7 +72,7 @@
                 <!-- Video container -->
                 <div class="video-container mb-5">
                     <!-- Replace the src attribute with your actual YouTube video URL -->
-                    <iframe width="100%" height="315" src="{{ asset('uploads/' . $project->video ) }}"
+                    <iframe width="100%" height="315" src="{{ asset($project->video ) }}"
                         title="project video player" frameborder="0" autoplay></iframe>
                 </div>
             </div>

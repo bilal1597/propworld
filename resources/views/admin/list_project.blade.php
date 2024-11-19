@@ -38,7 +38,7 @@
                                                     <td>{{ $project->project_name }}</td>
                                                     <td>
                                                         <div>
-                                                        <a href="{{ route('view.project', $project->id) }}" class="btn btn-info btn-sm">
+                                                        <a href="{{ route('detail.project', $project->id) }}" class="btn btn-info btn-sm">
                                                             View</a>
                                                         </div>
                                                     </td>

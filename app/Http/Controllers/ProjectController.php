@@ -222,7 +222,7 @@ class ProjectController extends Controller
             foreach ($request->file('multi_image') as $image) {
 
                 $multi = time() . '_' . uniqid() . '.' . $image->extension();
-                $path = public_path('uploads/category/multi/');
+                $path = 'uploads/category/multi/';
 
 
                 $image->move($path, $multi);
