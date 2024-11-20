@@ -16,7 +16,7 @@ class UserController extends Controller
         if (Auth::check()) {
             return view('admin.index', compact('user'));
         } else {
-            return redirect()->route('view.login');
+            return redirect()->route('login');
         }
     }
 
@@ -40,7 +40,7 @@ class UserController extends Controller
 
             return redirect()->route('view.dashboard');
         } else {
-            return redirect()->route('view.login')
+            return redirect()->route('login')
                 ->withErrors([
                     'email' => 'Email or Password is Wrong',
                 ]);
@@ -50,7 +50,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('view.login');
+        return redirect()->route('login');
     }
 
     public function getProfile()
@@ -61,7 +61,7 @@ class UserController extends Controller
         if (Auth::check()) {
             return view('admin.profile', compact('user'));
         } else {
-            return redirect()->route('view.login');
+            return redirect()->route('login');
         }
 
         // return view('admin.profile', compact('user'));

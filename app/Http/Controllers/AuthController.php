@@ -75,6 +75,6 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->remember_token = Str::random(50);
         $user->save();
-        return redirect()->route('view.login')->with('success', 'Password has been Reset');
+        return redirect()->route('login')->with('success', 'Password has been Reset');
     }
 }
