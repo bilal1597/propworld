@@ -22,7 +22,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Builder Name*</label>
-                                            <input type="text" class="form-control" name="builder_name" value="{{ old('builder_name',$project ->builder_name) }}">
+                                            <input type="text" class="form-control" name="builder_name"
+                                            value="{{(empty($project->builder_name)) ? old('builder_name') : $project->builder_name}}">
                                             @error('builder_name')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -30,7 +31,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Project Name*</label>
-                                            <input type="text" class="form-control" name="project_name" value="{{ old('project_name',$project ->project_name) }}">
+                                            <input type="text" class="form-control" name="project_name"
+                                            value="{{(empty($project->project_name)) ? old('project_name') : $project->project_name}}">
                                             @error('project_name')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -38,7 +40,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Project Description*</label>
-                                            <input type="text" class="form-control" name="project_description" value="{{old('project_description',$project ->project_description)}}">
+                                            <input type="text" class="form-control" name="project_description"
+                                            value="{{(empty($project->project_description)) ? old('project_description') : $project->project_description}}">
                                             @error('project_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -46,7 +49,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Project Point 1*</label>
-                                            <input type="text" class="form-control" name="prj_point1" value="{{old('prj_point1',$project ->prj_point1)}}">
+                                            <input type="text" class="form-control" name="prj_point1"
+                                            value="{{(empty($project->prj_point1)) ? old('prj_point1') : $project->prj_point1}}">
                                             @error('prj_point1')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -54,7 +58,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Project Point 2*</label>
-                                            <input type="text" class="form-control" name="prj_point2" value="{{old('prj_point2',$project ->prj_point2)}}">
+                                            <input type="text" class="form-control" name="prj_point2"
+                                            value="{{(empty($project->prj_point2)) ? old('prj_point2') : $project->prj_point2}}">
                                             @error('prj_point2')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -62,7 +67,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Project Point 3*</label>
-                                            <input type="text" class="form-control" name="prj_point3" value="{{old('prj_point3',$project ->prj_point3)}}">
+                                            <input type="text" class="form-control" name="prj_point3"
+                                            value="{{(empty($project->prj_point3)) ? old('prj_point3') : $project->prj_point3}}">
                                             @error('prj_point3')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -70,7 +76,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Main Heading*</label>
-                                            <input type="text" class="form-control" name="main_heading" value="{{ old('main_heading',$project ->main_heading) }}">
+                                            <input type="text" class="form-control" name="main_heading"
+                                            value="{{(empty($project->main_heading)) ? old('main_heading') : $project->main_heading}}">
                                             @error('main_heading')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -78,7 +85,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Main Description*</label>
-                                            <input type="text" class="form-control" name="main_description" value="{{ old('main_description',$project ->main_description) }}">
+                                            <input type="text" class="form-control" name="main_description"
+                                            value="{{(empty($project->main_description)) ? old('main_description') : $project->main_description}}">
                                             @error('main_description')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -96,14 +104,16 @@
 
                                         <div class="form-group mb-3">
                                             <label>First Heading*</label>
-                                            <input type="text" class="form-control" name="first_heading" value="{{old('first_heading',$project ->first_heading)}}">
+                                            <input type="text" class="form-control" name="first_heading"
+                                            value="{{(empty($project->first_heading)) ? old('first_heading') : $project->first_heading}}">
                                             @error('first_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                         </div>
                                         <div class="form-group mb-3">
                                             <label>First Description*</label>
-                                            <input type="text" class="form-control" name="first_description" value="{{old('first_description', $project ->first_description)}}">
+                                            <input type="text" class="form-control" name="first_description"
+                                            value="{{(empty($project->first_description)) ? old('first_description') : $project->first_description}}">
                                             @error('first_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -111,7 +121,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Point 1*</label>
-                                            <input type="text" class="form-control" name="point1" value="{{old('point1',$project ->point1)}}">
+                                            <input type="text" class="form-control" name="point1"
+                                            value="{{(empty($project->point1)) ? old('point1') : $project->point1}}">
                                             @error('point1')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -119,7 +130,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Point 2*</label>
-                                            <input type="text" class="form-control" name="point2" value="{{old('point2',$project ->point2)}}">
+                                            <input type="text" class="form-control" name="point2"
+                                            value="{{(empty($project->point2)) ? old('point2') : $project->point2}}">
                                             @error('point2')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -127,7 +139,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Point 3*</label>
-                                            <input type="text" class="form-control" name="point3" value="{{old('point3',$project ->point3)}}">
+                                            <input type="text" class="form-control" name="point3"
+                                            value="{{(empty($project->point3)) ? old('point3') : $project->point3}}">
                                             @error('point3')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -141,7 +154,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Multiple Images Heading*</label>
-                                            <input type="text" class="form-control" name="image_heading" value="{{old('image_heading',$project ->image_heading)}}">
+                                            <input type="text" class="form-control" name="image_heading"
+                                            value="{{(empty($project->image_heading)) ? old('image_heading') : $project->image_heading}}">
                                             @error('image_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -160,7 +174,8 @@
 
                                         <div class="form-group mb-3">
                                             <label>Video Heading*</label>
-                                            <input type="text" class="form-control" name="vid_heading" value="{{old('vid_heading',$project ->vid_heading)}}">
+                                            <input type="text" class="form-control" name="vid_heading"
+                                            value="{{(empty($project->vid_heading)) ? old('vid_heading') : $project->vid_heading}}">
                                             @error('vid_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

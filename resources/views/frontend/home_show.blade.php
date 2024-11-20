@@ -93,7 +93,7 @@
             </p>
           </div>
 
-          <a target="_blank" href="{{url('/project-details/project-23.html')}}">
+          <a target="_blank" href="{{asset('/project-details/project-23.html')}}">
             <button
               class="btn btn-warning pt-lg-1 mt-lg-0 mt-md-0 mt-3 mb-lg-0 mb-5"
               style="border-radius: 0%"
@@ -104,14 +104,14 @@
         </div>
 
         <div class="col-lg-6 col-md-6">
-          <img class="img-fluid" src="{{url($proj ->main_image)}}" alt="" />
+          <img class="img-fluid" src="{{asset($proj ->main_image)}}" alt="" />
         </div>
 
         <div class="mdi bg-white border w-75 m-lg-0 m-md-0 m-auto mt-lg-0 mt-5">
           <div class="row p-4">
             <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
               <div>
-                <img class="img-fluid" src="{{url('/pic/house.png')}}" alt="" />
+                <img class="img-fluid" src="{{asset('/pic/house.png')}}" alt="" />
               </div>
               <div class="mt-2 ms-2">
                 <h2 class="col-lg-2 text-warning fw-semibold">100</h2>
@@ -121,7 +121,7 @@
 
             <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
               <div>
-                <img class="img-fluid" src="{{url('/pic/cabinet.png')}}" alt="" />
+                <img class="img-fluid" src="{{asset('/pic/cabinet.png')}}" alt="" />
               </div>
               <div class="mt-2 ms-2">
                 <h2 class="col-lg-2 text-warning fw-semibold">50</h2>
@@ -131,7 +131,7 @@
 
             <div class="d-lg-flex col-lg-4 col-md-4 col-sm-4 col-4">
               <div>
-                <img class="img-fluid" src="{{url('/pic/ruler.png')}}" alt="" />
+                <img class="img-fluid" src="{{asset('/pic/ruler.png')}}" alt="" />
               </div>
               <div class="mt-2 ms-2">
                 <h2 class="col-lg-2 text-warning fw-semibold">2500M</h2>

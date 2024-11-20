@@ -22,7 +22,7 @@
                                         <div class="form-group mb-3">
                                             <label>Main Heading*</label>
                                             <input type="text" class="form-control" name="main_heading"
-                                             value="{{ old('main_heading',$contact ->main_heading) }}">
+                                            value="{{(empty($contact->main_heading)) ? old('main_heading') : $contact->main_heading}}" >
                                             @error('main_heading')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -41,7 +41,7 @@
                                         <div class="form-group mb-3">
                                             <label>First Heading*</label>
                                             <input type="text" class="form-control" name="contact_heading"
-                                            value="{{old('contact_heading',$contact ->contact_heading)}}">
+                                            value="{{(empty($contact->contact_heading)) ? old('contact_heading') : $contact->contact_heading}}" >
                                             @error('contact_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -49,7 +49,7 @@
                                         <div class="form-group mb-3">
                                             <label>First Description*</label>
                                             <input type="text" class="form-control" name="contact_description"
-                                             value="{{old('contact_description',$contact ->contact_description)}}">
+                                            value="{{(empty($contact->contact_description)) ? old('contact_description') : $contact->contact_description}}" >
                                             @error('contact_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
