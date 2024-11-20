@@ -30,7 +30,7 @@
 
 
 
-    <section class="title">
+    <section class="title"  >
       <div>
         <h1 class="display-5 fw-medium text-white">Projects</h1> {{-- title DB --}}
       </div>

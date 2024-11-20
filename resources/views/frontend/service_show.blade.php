@@ -28,7 +28,7 @@
     <!--picture title-->
     @foreach ($show as $item)
 
-    <section class="title">
+    <section class="title" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url({{asset($item ->main_image)}})" >
       <div>
         <h1 class="display-5 fw-medium text-white">{{$item ->main_heading}}</h1> {{--title DB--}}
       </div>
