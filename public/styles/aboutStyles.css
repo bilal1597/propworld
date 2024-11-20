@@ -1,108 +1,100 @@
 body {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 i {
-  color: white;
+    color: white;
 }
 
 .header {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .logo {
-  width: 220px;
+    width: 220px;
 }
 
 .logos {
-  width: 30px;
-  height: 25px;
+    width: 30px;
+    height: 25px;
 }
 
 .links {
-  font-weight: 600;
-  transition: 0.2s;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
 .links:hover {
-  color: goldenrod;
-  transition: 0.2s ease-in-out;
+    color: goldenrod;
+    transition: 0.2s ease-in-out;
 }
 
 .contact-nav {
-  font-family: sans-serif;
-  border-radius: 30px;
-  width: 142px;
-  height: 37px;
+    font-family: sans-serif;
+    border-radius: 30px;
+    width: 142px;
+    height: 37px;
 }
 
 .title {
-  padding: 90px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
-    url("../pic/building.jpg");
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: cover;
+    padding: 90px;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("../pic/building.jpg"); */
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
 }
 
 .card-hover {
-  transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 .card-hover:hover {
-  transition: 0.5s ease-in-out;
-  background-color: gainsboro;
-  transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+    background-color: gainsboro;
+    transform: scale(1.1);
 }
 
 .btn-view {
-  height: 45px;
+    height: 45px;
 }
 
 .btn-mix {
-  margin-top: -75px;
-  position: absolute;
+    margin-top: -75px;
+    position: absolute;
 }
 
 .footer {
-  margin-top: -50px;
+    margin-top: -50px;
 }
 
 .li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 .hover {
-  transition: 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .hover:hover {
-  transition: 0.2s ease;
-  color: black;
+    transition: 0.2s ease;
+    color: black;
 }
 
 .hover-insta:hover {
-  transition: 0.2s ease;
-  background: radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-  background-clip: text;
-  border-radius: 20%;
-  transition: 0.35s;
-  color: transparent;
-  cursor: pointer;
+    transition: 0.2s ease;
+    background: radial-gradient( circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    background-clip: text;
+    border-radius: 20%;
+    transition: 0.35s;
+    color: transparent;
+    cursor: pointer;
 }
 
 .hover-facebook:hover {
-  color: #1877f2;
-  transition: 0.35s;
-  cursor: pointer;
+    color: #1877f2;
+    transition: 0.35s;
+    cursor: pointer;
 }

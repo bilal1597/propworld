@@ -27,12 +27,12 @@
     <!--navbar end-->
 
     <!--picture title-->
-    @foreach ($show as $item )
+
 
 
     <section class="title">
       <div>
-        <h1 class="display-5 fw-medium text-white">{{$item ->main_title}}</h1> {{-- title DB --}}
+        <h1 class="display-5 fw-medium text-white">Projects</h1> {{-- title DB --}}
       </div>
     </section>
     <!--picture title end-->
@@ -40,14 +40,16 @@
     <!--heading-->
     <section class="text-center mb-5">
       <div class="pb-3">
-        <h2 class="mt-5 display-6 fw-medium">{{$item ->main_heading }}</h2>  {{--heading DB--}}
+        <h2 class="mt-5 display-6 fw-medium">Recent Projects </h2>  {{--heading DB--}}
 
-        <p class="mt-4 text-secondary">{{$item ->main_description}}</p>   {{--heading para DB--}}
+        <p class="mt-4 text-secondary">Discover our quality latest products</p>   {{--heading para DB--}}
       </div>
     </section>
     <!--heading end-->
 
     <!--project 1-->
+    @foreach ($project as $item )
+
     <section class="container">
       <div class="row">
         <div class="container col-lg-5 col-md-10 col-sm-8 col-8">
@@ -55,35 +57,35 @@
             <img
               style="position: relative; top: -45px; right: 45px"
               class="img-fluid"
-              src="{{asset($item ->first_image)}}"
+              src="{{asset($item ->main_image)}}"
               alt=""
             />
           </div>
         </div>
 
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 m-auto">
-          <h5>{{$item ->first_project}}</h5>
+          <h5>{{$item ->project_name}}</h5>
           <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
-            {{$item ->first_heading}}
+            {{$item ->builder_name}}
           </h2>
           <p class="pt-4">    {{--Al sadiq para DB--}}
-            {{$item ->first_description}}
+            {{$item ->project_description}}
           </p>
 
           <div class="pt-3">
             <p>
               <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >Modern amenities
+              >{{$item ->prj_point1}}
             </p>
             <p>
               <i
                 class="far fas fas fa-angle-double-right text-warning pe-2"
               ></i>
-              Available on Pre-launching Price
+              {{$item ->prj_point2}}
             </p>
             <p>
               <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >Registered in FBR Amnesty Scheme
+              >{{$item ->prj_point3}}
             </p>
           </div>
         </div>
@@ -91,107 +93,7 @@
     </section>
     <!--project 1 end-->
 
-    <!--project 2-->
-    <section class="container mt-lg-0 mt-5">
-      <div class="row">
-        <div
-          class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-1 order-2 m-auto"
-        >
-          <h5>{{$item ->second_project}}</h5>
-          <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
-            {{$item ->second_heading}}
-          </h2>
-          <p class="pt-4">       {{--M&H para DB--}}
-            {{$item ->second_description}}
-          </p>
 
-          <div class="pt-3">
-            <p>
-              <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >42 month Payment schedule
-            </p>
-            <p>
-              <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >Flexible office spaces
-            </p>
-            <p>
-              <i class="far fas fas fa-angle-double-right text-warning pe-2"></i
-              >Prime Location of Captain Fareed Bukhari Road, SMCHS
-            </p>
-          </div>
-
-          <button class="btn btn-lg view-btn btn-warning text-white">
-            View Project
-          </button>
-        </div>
-
-        <div
-          class="container col-lg-5 col-md-10 col-sm-8 col-8 order-lg-2 order-1"
-        >
-          <div class="col-lg-12 border border-5 border-warning mt-5 mb-5">
-            <img
-              style="position: relative; top: -45px; right: 45px"
-              class="img-fluid"
-              src="{{asset($item ->second_image)}}"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--project 2 end-->
-
-    <!--project 3-->
-    <section class="container mt-5">
-      <div class="row">
-        <div class="container col-lg-5 col-md-10 col-sm-8 col-8">
-          <div class="col-lg-12 border border-5 border-warning mt-5 mb-5">
-            <img
-              style="position: relative; top: -45px; right: 45px"
-              class="img-fluid"
-              src="{{asset($item ->third_image)}}"
-              alt=""
-            />
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12 m-auto">
-          <h5>{{$item ->third_project}}</h5>
-          <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
-            {{$item ->third_heading}}
-          </h2>     {{--RJ para DB--}}
-          <p class="pt-4">
-            {{$item ->first_project}}
-          </p>
-
-          <div class="pt-3">
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Easy Payment Plans
-            </p>
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              Prime Location of Allama Iqbal Road
-            </p>
-            <p>
-              <i
-                class="far fas fas fa-angle-double-right text-warning pe-2"
-              ></i>
-              All Basic Amenities of Life are Present within the Project
-              Boundary
-            </p>
-          </div>
-
-          <button class="btn btn-lg view-btn btn-warning text-white">
-            View Project
-          </button>
-        </div>
-      </div>
-    </section>
     @endforeach
     <!--project 3 end-->
 

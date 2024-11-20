@@ -142,13 +142,7 @@
         </div>
       </div>
     </section>
-    <!--project 1 end-->
 
-    <!--project 2-->
-
-    <!--project 2 end-->
-
-    <!--project 3-->
 
     @endforeach
     <!--project 3 end-->

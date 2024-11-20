@@ -27,10 +27,11 @@
     <!--navbar end-->
 
     <!--picture title-->
+
     @foreach ($show as $item)
 
 
-    <section class="title">
+    <section class="title" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url({{asset($item ->main_image)}})" >
       <div>
         <h1 class="display-5 fw-medium text-white">{{$item ->main_heading}}</h1> {{--title DB--}}
       </div>
@@ -48,7 +49,8 @@
               <img
                 style="position: relative; top: -45px; right: 45px"
                 class="img-fluid"
-                src="{{url('/pic/our-story.jpg')}}"
+                {{-- src="{{url('/pic/our-story.jpg')}}" --}}
+                src="{{asset($item ->existing_image)}}"
                 alt=""
               />
             </div>
@@ -114,6 +116,7 @@
             <h3>Architectural Design and Planning</h3>
             <p class="pt-2">  {{--design_para DB--}}
                 {{-- {{$item ->design_para }} --}}
+                Transform your vision into reality with our expert architects and designers. We create innovative and functional designs tailored to your unique requirements that seamlessly evolve from concept to construction.
             </p>
           </div>
 
@@ -123,6 +126,7 @@
             <h3>Construction and Building</h3>
             <p class="pt-2">                          {{--build_para DB--}}
               {{-- {{$item ->build_para}} --}}
+              From groundbreaking to the final finishes, we take pride in our precise construction processes. Our skilled builders bring your project to life, ensuring quality craftsmanship, durability, and adherence to timelines.
             </p>
           </div>
 
@@ -132,6 +136,7 @@
             <h3>Project Management</h3>
             <p class="pt-2">                       {{--management_para DB--}}
               {{-- {{$item ->management_para}} --}}
+              Leave the complexities of project coordination to us. Our experienced project managers oversee every detail, from scheduling and budgeting to on-site supervision, ensuring that your project is delivered efficiently and to the highest standards.
             </p>
           </div>
         </div>

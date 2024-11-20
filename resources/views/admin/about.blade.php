@@ -69,7 +69,8 @@
                                         <div class="form-group mb-3">
                                             <label>Second Heading*</label>
                                             <input type="text" name="second_heading"
-                                            value="{{(empty($about->second_heading)) ? old('second_heading') : $about->second_heading}}" class="form-control"></input>
+                                            value="{{(empty($about->second_heading)) ? old('second_heading') : $about->second_heading}}"
+                                             class="form-control"></input>
                                             @error('second_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -78,7 +79,8 @@
                                         <div class="form-group mb-3">
                                             <label>Second Description*</label>
                                             <input type="text"
-                                            value="{{(empty($about->second_description)) ? old('second_description') : $about->second_description}}" name="second_description" class="form-control"></input>
+                                            value="{{(empty($about->second_description)) ? old('second_description') : $about->second_description}}"
+                                             name="second_description" class="form-control"></input>
                                             @error('second_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -87,7 +89,8 @@
                                         <div class="form-group mb-3">
                                             <label>Third Heading*</label>
                                             <input type="text" name="third_heading"
-                                            value="{{(empty($about->third_heading)) ? old('third_heading') : $about->third_heading}}" class="form-control"></input>
+                                            value="{{(empty($about->third_heading)) ? old('third_heading') : $about->third_heading}}"
+                                             class="form-control"></input>
                                             @error('third_heading')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -96,7 +99,8 @@
                                         <div class="form-group mb-3">
                                             <label>Third Description*</label>
                                             <input type="text" name="third_description"
-                                            value="{{(empty($about->third_description)) ? old('third_description') : $about->third_description}}" class="form-control"></input>
+                                            value="{{(empty($about->third_description)) ? old('third_description') : $about->third_description}}"
+                                            class="form-control"></input>
                                             @error('third_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -122,13 +126,15 @@
                                             <input type="file" class="form-control" name="ceo2_image" value="">
                                         </div>
 
-                                        {{-- <div class="form-group mb-3">
+                                        <div class="form-group mb-3">
                                             <label>Title</label>
-                                            <input type="text" name="title" value="{{old('title',$about ->title)}}" class="form-control"></input>
+                                            <input type="text" name="title"
+                                            value="{{(empty($about->title)) ? old('title') : $about->title}}"
+                                            class="form-control"></input>
                                             @error('title')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
-                                        </div> --}}
+                                        </div>
 
 
                                         <div class="form-group">
