@@ -124,7 +124,7 @@ class ProjectController extends Controller
         return view('admin.project', compact('project'));
     }
 
-    public function editProject(Request $request)
+    public function editProject(Request $request, $id)
     {
 
         $request->validate([
@@ -150,7 +150,7 @@ class ProjectController extends Controller
             'video' => 'nullable',
         ]);
 
-        $project = Project::findOrFail($request->id);
+        $project = Project::findOrFail($id);
 
         $project->builder_name = $request->builder_name;
         $project->project_name = $request->project_name;
