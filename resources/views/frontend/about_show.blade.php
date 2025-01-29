@@ -160,7 +160,7 @@
       <div class="container mb-5">
         <div class="row text-center">
           <div class="col-lg-6 mb-lg-0 mb-md-5 mb-sm-5 mb-5">
-            <img class="shadow" src="{{url('/pic/ceo.png')}}" alt="" />
+            <img width="100px" class="shadow" src="{{asset($item ->ceo_image)}}" alt="" />
             <div class="mt-4">
               <h2>Saad Faridi</h2>
               <p class="mt-2">CEO</p>

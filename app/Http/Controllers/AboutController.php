@@ -6,6 +6,7 @@ use App\Models\About;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rules\Unique;
 
 class AboutController extends Controller
 {
@@ -53,13 +54,13 @@ class AboutController extends Controller
         $about->third_description = $request->third_description;
         $about->title = $request->title;
 
-        if ($request->has('main_image')) {
+        if ($request->hasFile('main_image')) {
 
             if (File::exists($about->main_image)) {
                 (File::delete($about->main_image));
             }
             $file = $request->file('main_image');
-            $filename = time() . '.' . $file->extension();
+            $filename = time() . '_' . uniqid() . '.' . $file->extension();
             $path = 'uploads/category/about/';
             $file->move(public_path($path), $filename);
             $about->main_image = $path . $filename;

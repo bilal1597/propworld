@@ -43,12 +43,12 @@
                                                         </div>
                                                     </td>
                                                     <td class="d-flex">
-                                                        <div>
+                                                        {{-- <div>
                                                             <a class="btn btn-warning btn-sm me-3"
                                                             href="{{ route('view.project', $project->id) }}">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        </div>
+                                                        </div> --}}
 
                                                         <form action="{{ route('delete.project', $project->id) }}" method="POST">
                                                             {{-- @method('DELETE') --}}

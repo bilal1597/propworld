@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('ceo_image')->nullable();
             $table->string('ceo2_image')->nullable();
             $table->string('title');
+            $table->string('titleee');
             $table->timestamps();
         });
     }

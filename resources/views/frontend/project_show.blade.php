@@ -1,6 +1,9 @@
-@extends('layouts.main')  {{-- ye main-section.blade file se header or footer lyga --}}
+@extends('layouts.main')
+ {{-- ye main-section.blade file se header or footer lyga --}}
 
-@section('main-section')  {{-- ye main-section header, footer k beech ka material btanay k lye --}}<html>
+@section('main-section')
+{{-- ye main-section header, footer k beech ka material btanay k lye --}}
+<html>
   <head>
     <title>Projects</title>
 
@@ -29,10 +32,10 @@
     <!--picture title-->
 
 
-
     <section class="title"  >
       <div>
-        <h1 class="display-5 fw-medium text-white">Projects</h1> {{-- title DB --}}
+        <h1 class="display-5 fw-medium text-white">Projects</h1>
+        {{-- title DB --}}
       </div>
     </section>
     <!--picture title end-->
@@ -40,15 +43,17 @@
     <!--heading-->
     <section class="text-center mb-5">
       <div class="pb-3">
-        <h2 class="mt-5 display-6 fw-medium">Recent Projects </h2>  {{--heading DB--}}
+        <h2 class="mt-5 display-6 fw-medium">Recent Projects </h2>
+        {{--heading DB--}}
 
-        <p class="mt-4 text-secondary">Discover our quality latest products</p>   {{--heading para DB--}}
+        <p class="mt-4 text-secondary">Discover our quality latest products</p>
+         {{--heading para DB--}}
       </div>
     </section>
     <!--heading end-->
 
     <!--project 1-->
-    @foreach ($project as $item )
+    @foreach ($project_list as $item )
 
     <section class="container">
       <div class="row">
@@ -68,7 +73,8 @@
           <h2 class="border-bottom border-4 d-inline pb-2 border-warning">
             {{$item ->builder_name}}
           </h2>
-          <p class="pt-4">    {{--Al sadiq para DB--}}
+          <p class="pt-4">
+             {{--Al sadiq para DB--}}
             {{$item ->project_description}}
           </p>
 

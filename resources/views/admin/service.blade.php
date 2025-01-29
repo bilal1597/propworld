@@ -275,7 +275,6 @@
                                         @enderror
                                         </div>
 
-
                                         <div class="form-group mb-3">
                                             <label>Special 6 Description*</label>
                                             <input type="text" class="form-control" name="special6_description"

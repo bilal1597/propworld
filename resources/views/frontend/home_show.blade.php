@@ -95,7 +95,7 @@
             </p>
           </div>
 
-          <a target="_blank" href="{{asset('/project-details/project-23.html')}}">
+          <a target="_blank" href="{{ route('detail.project', $proj->id) }}">
             <button
               class="btn btn-warning pt-lg-1 mt-lg-0 mt-md-0 mt-3 mb-lg-0 mb-5"
               style="border-radius: 0%"

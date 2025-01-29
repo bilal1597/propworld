@@ -34,20 +34,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('about', [AboutController::class, 'getAbout'])->name('view.about');
     Route::post('about', [AboutController::class, 'postAbout'])->name('post.about');
 
-    ////////////contact /////////////////////
+    //////////// contact ////////////////////
 
     Route::get('contact', [ContactController::class, 'getContact'])->name('view.contact');
     Route::post('contact', [ContactController::class, 'postContact'])->name('post.contact');
     Route::get('message', [ContactController::class, 'getMessage'])->name('view.message');
 
     /////////////// project ////////
+
     Route::get('project/list', [ProjectController::class, 'listProject'])->name('list.project');
     Route::get('project/add', [ProjectController::class, 'addProject'])->name('add.project');
     Route::post('project/add', [ProjectController::class, 'storeProject'])->name('store.project');
-    Route::get('project/{id}', [ProjectController::class, 'getProject'])->name('view.project');
+    // Route::get('project/{id}', [ProjectController::class, 'getProject'])->name('view.project');
     Route::post('project/', [ProjectController::class, 'editProject'])->name('post.project');
     Route::post('project/delete/{id}', [ProjectController::class, 'deleteProject'])->name('delete.project');
-    Route::get('projects/{id}', [detailProjController::class, 'projectDetails'])->name('detail.project');
+    Route::get('projects/details/{id}', [detailProjController::class, 'projectDetails'])->name('detail.project');
 
 
     ///////////////// home ////
@@ -67,6 +68,7 @@ Route::get('about/show', [AboutController::class, 'showAbout'])->name('show.abou
 Route::get('contact/show', [ContactController::class, 'showContact'])->name('show.contact');
 Route::post('contact/show', [ContactController::class, 'postComplain'])->name('user.complain');
 
+// Route::get('project/{id}', [ProjectController::class, 'getProject'])->name('view.project');
 Route::get('project/show', [ProjectController::class, 'showProject'])->name('show.project');
 
 Route::get('home/show', [HomeController::class, 'showHome'])->name('show.home');

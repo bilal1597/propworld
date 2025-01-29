@@ -11,8 +11,9 @@ class ProjectController extends Controller
 
     public function showProject()
     {
-        $project = Project::all();
-        return view('frontend.project_show', compact('project'));
+        $project_list = Project::all();
+        return view('frontend.project_show', compact('project_list'));
+        // return view('frontend.project_show');
     }
 
     public function listProject()
